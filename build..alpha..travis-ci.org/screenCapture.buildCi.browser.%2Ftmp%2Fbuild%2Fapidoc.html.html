@@ -1,0 +1,5841 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/automategreen/dynamoose">dynamoose (v0.7.0)</a>
+</h1>
+<h4>Dynamoose is a modeling tool for Amazon's DynamoDB (inspired by Mongoose)</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose">module dynamoose</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Model
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Query
+            <span class="apidocSignatureSpan">(Model, query, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Scan
+            <span class="apidocSignatureSpan">(Model, filter, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Schema
+            <span class="apidocSignatureSpan">(obj, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Table
+            <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.VirtualType">
+            function <span class="apidocSignatureSpan">dynamoose.</span>VirtualType
+            <span class="apidocSignatureSpan">(options, name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.gruntfile">
+            function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Attribute</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Model.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Query.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Scan.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Schema.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Table.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>VirtualType.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>errors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>models</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Attribute">module dynamoose.Attribute</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Attribute.create">
+            function <span class="apidocSignatureSpan">dynamoose.Attribute.</span>create
+            <span class="apidocSignatureSpan">(schema, name, obj)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Model">module dynamoose.Model</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.Model">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Model
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.batchDelete">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchDelete
+            <span class="apidocSignatureSpan">(NewModel, keys, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.batchGet">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchGet
+            <span class="apidocSignatureSpan">(NewModel, keys, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.batchPut">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchPut
+            <span class="apidocSignatureSpan">(NewModel, items, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.compile">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>compile
+            <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.create">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>create
+            <span class="apidocSignatureSpan">(NewModel, obj, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.delete">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>delete
+            <span class="apidocSignatureSpan">(NewModel, key, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.get">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>get
+            <span class="apidocSignatureSpan">(NewModel, key, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.query">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>query
+            <span class="apidocSignatureSpan">(NewModel, query, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.queryOne">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>queryOne
+            <span class="apidocSignatureSpan">(NewModel, query, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.scan">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>scan
+            <span class="apidocSignatureSpan">(NewModel, filter, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.update">
+            function <span class="apidocSignatureSpan">dynamoose.Model.</span>update
+            <span class="apidocSignatureSpan">(NewModel, key, update, options, next)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Model.prototype">module dynamoose.Model.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.prototype.delete">
+            function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>delete
+            <span class="apidocSignatureSpan">(options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.prototype.put">
+            function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>put
+            <span class="apidocSignatureSpan">(options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Model.prototype.save">
+            function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>save
+            <span class="apidocSignatureSpan">(options, next)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Query">module dynamoose.Query</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.Query">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Query
+            <span class="apidocSignatureSpan">(Model, query, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Query.prototype">module dynamoose.Query.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.and">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>and
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.ascending">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>ascending
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.attributes">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>attributes
+            <span class="apidocSignatureSpan">(attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.beginsWith">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>beginsWith
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.between">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>between
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.compVal">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>compVal
+            <span class="apidocSignatureSpan">(vals, comp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.consistent">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>consistent
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.contains">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>contains
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.descending">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>descending
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.eq">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>eq
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.exec">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>exec
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.filter">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>filter
+            <span class="apidocSignatureSpan">(filter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.ge">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>ge
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.gt">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>gt
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.in">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>in
+            <span class="apidocSignatureSpan">(vals)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.le">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>le
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.limit">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>limit
+            <span class="apidocSignatureSpan">(limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.lt">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>lt
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.not">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>not
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.null">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>null
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.one">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>one
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.or">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>or
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.startAt">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>startAt
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Query.prototype.where">
+            function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>where
+            <span class="apidocSignatureSpan">(rangeKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Scan">module dynamoose.Scan</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.Scan">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Scan
+            <span class="apidocSignatureSpan">(Model, filter, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Scan.prototype">module dynamoose.Scan.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.and">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>and
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.attributes">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>attributes
+            <span class="apidocSignatureSpan">(attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.beginsWith">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>beginsWith
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.between">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>between
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.compVal">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>compVal
+            <span class="apidocSignatureSpan">(vals, comp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.contains">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>contains
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.eq">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>eq
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.exec">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>exec
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.filter">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>filter
+            <span class="apidocSignatureSpan">(filter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.ge">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>ge
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.gt">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>gt
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.in">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>in
+            <span class="apidocSignatureSpan">(vals)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.le">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>le
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.limit">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>limit
+            <span class="apidocSignatureSpan">(limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.lt">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>lt
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.not">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>not
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.null">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>null
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.or">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>or
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.parseFilterObject">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>parseFilterObject
+            <span class="apidocSignatureSpan">(filter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.startAt">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>startAt
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Scan.prototype.where">
+            function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>where
+            <span class="apidocSignatureSpan">(filter)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Schema">module dynamoose.Schema</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.Schema">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Schema
+            <span class="apidocSignatureSpan">(obj, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Schema.prototype">module dynamoose.Schema.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.method">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>method
+            <span class="apidocSignatureSpan">(name, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.parseDynamo">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>parseDynamo
+            <span class="apidocSignatureSpan">(model, dynamoObj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.static">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>static
+            <span class="apidocSignatureSpan">(name, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.toDynamo">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>toDynamo
+            <span class="apidocSignatureSpan">(model)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.virtual">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>virtual
+            <span class="apidocSignatureSpan">(name, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Schema.prototype.virtualpath">
+            function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>virtualpath
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Table">module dynamoose.Table</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.Table">
+            function <span class="apidocSignatureSpan">dynamoose.</span>Table
+            <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.Table.prototype">module dynamoose.Table.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.create">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>create
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.createIndex">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>createIndex
+            <span class="apidocSignatureSpan">(attributes, indexSpec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.delete">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>delete
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.deleteIndex">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>deleteIndex
+            <span class="apidocSignatureSpan">(indexName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.describe">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>describe
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.init">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>init
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.update">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>update
+            <span class="apidocSignatureSpan">(next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.Table.prototype.waitForActive">
+            function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>waitForActive
+            <span class="apidocSignatureSpan">(timeout, next)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.VirtualType">module dynamoose.VirtualType</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.VirtualType.VirtualType">
+            function <span class="apidocSignatureSpan">dynamoose.</span>VirtualType
+            <span class="apidocSignatureSpan">(options, name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.VirtualType.prototype">module dynamoose.VirtualType.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.VirtualType.prototype.applyVirtuals">
+            function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>applyVirtuals
+            <span class="apidocSignatureSpan">(model)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.VirtualType.prototype.get">
+            function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>get
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.VirtualType.prototype.set">
+            function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>set
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.errors">module dynamoose.errors</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.errors.ModelError">
+            function <span class="apidocSignatureSpan">dynamoose.errors.</span>ModelError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.errors.QueryError">
+            function <span class="apidocSignatureSpan">dynamoose.errors.</span>QueryError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.errors.ScanError">
+            function <span class="apidocSignatureSpan">dynamoose.errors.</span>ScanError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.errors.SchemaError">
+            function <span class="apidocSignatureSpan">dynamoose.errors.</span>SchemaError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.errors.ValidationError">
+            function <span class="apidocSignatureSpan">dynamoose.errors.</span>ValidationError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.gruntfile">module dynamoose.gruntfile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.gruntfile.gruntfile">
+            function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose" id="apidoc.module.dynamoose">module dynamoose</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model" id="apidoc.element.dynamoose.Model">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Model
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Model(obj) {
+  this.$__.isNew = true;
+
+  for(var key in obj) {
+    this[key] = obj[key];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query" id="apidoc.element.dynamoose.Query">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Query
+        <span class="apidocSignatureSpan">(Model, query, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Query(Model, query, options) {
+  this.Model = Model;
+  this.options = options || {};
+
+
+  // {
+  //   hashKey: {
+  //     name: 'name',
+  //     value: 'value'
+  //   },
+  //   rangeKey: {
+  //     name: 'name',
+  //     value: 'value',
+  //     comparison: 'string'
+  //   }
+  // }
+  this.query = {hashKey: {}};
+
+  this.filters = {};
+  this.buildState = false;
+
+  var hashKeyName, hashKeyVal;
+  if(typeof query === 'string') {
+    this.buildState = 'hashKey';
+    this.query.hashKey.name = query;
+  } else if (query.hash) {
+    hashKeyName = Object.keys(query.hash)[0];
+    hashKeyVal = query.hash[hashKeyName];
+    if(hashKeyVal.eq !== null &amp;&amp; hashKeyVal.eq !== undefined) {
+      hashKeyVal = hashKeyVal.eq;
+    }
+    this.query.hashKey.name = hashKeyName;
+    this.query.hashKey.value = hashKeyVal;
+
+    if(query.range) {
+      var rangeKeyName = Object.keys(query.range)[0];
+      var rangeKeyVal = query.range[rangeKeyName];
+      var rangeKeyComp = Object.keys(rangeKeyVal)[0];
+      rangeKeyVal = rangeKeyVal[rangeKeyComp];
+      this.query.rangeKey = {
+        name: rangeKeyName,
+        value: rangeKeyVal,
+        comparison: rangeKeyComp
+      };
+    }
+  } else {
+    hashKeyName = Object.keys(query)[0];
+    hashKeyVal = query[hashKeyName];
+    if(hashKeyVal.eq !== null &amp;&amp; hashKeyVal.eq !== undefined) {
+      hashKeyVal = hashKeyVal.eq;
+    }
+    this.query.hashKey.name = hashKeyName;
+    this.query.hashKey.value = hashKeyVal;  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan" id="apidoc.element.dynamoose.Scan">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Scan
+        <span class="apidocSignatureSpan">(Model, filter, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Scan(Model, filter, options) {
+
+  this.Model = Model;
+  this.options = options || {};
+
+
+  // [{
+  //     name: 'name',
+  //     values: ['value', ...],
+  //     comparison: 'string'
+  //   },
+  //    ...
+  // ]
+  this.filters = {};
+  this.buildState = false;
+
+  if (typeof filter === 'string') {
+    this.buildState = filter;
+    this.filters[filter] = {name: filter};
+  } else if (typeof filter === 'object'){
+    this.parseFilterObject(filter);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema" id="apidoc.element.dynamoose.Schema">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Schema
+        <span class="apidocSignatureSpan">(obj, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Schema(obj, options) {
+  debug('Creating Schema', obj);
+
+  this.options = options || {};
+
+  this.methods = {};
+  this.statics = {};
+  this.virtuals = {};
+  this.tree = {};
+
+  if(this.options.throughput) {
+    var throughput = this.options.throughput;
+    if(typeof throughput === 'number') {
+      throughput = {read: throughput, write: throughput};
+    }
+    this.throughput = throughput;
+  } else {
+    this.throughput = {read: 1, write: 1};
+  }
+
+  if((!this.throughput.read || !this.throughput.write) &amp;&amp;
+    this.throughput.read &gt;= 1 &amp;&amp; this.throughput.write &gt;= 1) {
+    throw new errors.SchemaError('Invalid throughput: '+ this.throughput);
+  }
+
+<span class="apidocCodeCommentSpan">  /*
+    * Added support for timestamps attribute
+    */
+</span>  if (this.options.timestamps) {
+    var createdAt = null;
+    var updatedAt = null;
+
+    if (this.options.timestamps === true) {
+      createdAt = 'createdAt';
+      updatedAt = 'updatedAt';
+    } else if (typeof this.options.timestamps === 'object') {
+      if (this.options.timestamps.createdAt &amp;&amp; this.options.timestamps.updatedAt) {
+        createdAt = this.options.timestamps.createdAt;
+        updatedAt = this.options.timestamps.updatedAt;
+      } else {
+        throw new errors.SchemaError('Missing createdAt and updatedAt timestamps attribute. Maybe set timestamps: true?');
+      }
+    } else {
+      throw new errors.SchemaError('Invalid syntax for timestamp: ' + name);
+    }
+
+    obj[createdAt] = { type: Date, default: Date.now };
+    obj[updatedAt] = { type: Date, default: Date.now, set: function() { return Date.now(); } };
+    this.timestamps = { createdAt: createdAt, updatedAt: updatedAt };
+  }
+
+  this.useDocumentTypes = !!this.options.useDocumentTypes;
+
+  this.attributes = {};
+  this.indexes = {local: {}, global: {}};
+
+  for(var n in obj) {
+
+    if(this.attributes[n]) {
+      throw new errors.SchemaError('Duplicate attribute: ' + n);
+    }
+
+    debug('Adding Attribute to Schema (%s)', n, obj);
+    this.attributes[n] = Attribute.create(this, n, obj[n]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table" id="apidoc.element.dynamoose.Table">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Table
+        <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Table(name, schema, options, base) {
+  debug('new Table (%s)', name, schema);
+  this.name = name;
+  this.schema = schema;
+  this.options = options || {};
+  this.base = base;
+
+  if (this.options.create === undefined || this.options.create === null) {
+    this.options.create = true;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.VirtualType" id="apidoc.element.dynamoose.VirtualType">
+        function <span class="apidocSignatureSpan">dynamoose.</span>VirtualType
+        <span class="apidocSignatureSpan">(options, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function VirtualType(options, name) {
+  this.path = name;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.gruntfile" id="apidoc.element.dynamoose.gruntfile">
+        function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    jshint: {
+      app: {
+        src: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
+        options: {
+          node: true,
+          jshintrc: '.jshintrc'
+        }
+      },
+      test: {
+        src: ['test/**/*.js' ],
+        options: {
+          node: true,
+          jshintrc: 'test/.jshintrc'
+        }
+      }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      },
+      testCoverage: {
+        options: {
+          reporter: 'spec',
+          require: 'test/coverage/blanket'
+        },
+        src: ['test/**/*.js']
+      },
+      coverage: {
+        options: {
+          reporter: 'html-cov',
+          // use the quiet flag to suppress the mocha console output
+          quiet: true,
+          // specify a destination file to capture the mocha
+          // output (the quiet option does not suppress this)
+          captureFile: 'coverage.html'
+        },
+        src: ['test/**/*.js']
+      },
+      'travis-cov': {
+        options: {
+          reporter: 'travis-cov'
+        },
+        src: ['test/**/*.js']
+      }
+    }
+  });
+
+  // Load libs
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-mocha-test');
+
+
+  // Register the default tasks
+  grunt.registerTask('default', ['jshint', 'mochaTest']);
+
+  grunt.registerTask('test', ['jshint', 'mochaTest:test']);
+
+  grunt.registerTask('coverage', ['jshint', 'mochaTest:testCoverage', 'mochaTest:coverage', 'mochaTest:travis-cov']);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Attribute" id="apidoc.module.dynamoose.Attribute">module dynamoose.Attribute</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Attribute.create" id="apidoc.element.dynamoose.Attribute.create">
+        function <span class="apidocSignatureSpan">dynamoose.Attribute.</span>create
+        <span class="apidocSignatureSpan">(schema, name, obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (schema, name, obj) {
+
+
+  var value = obj;
+  var options = {};
+  if(typeof obj === 'object' &amp;&amp; obj.type) {
+    options = obj;
+  }
+
+  var attr = new Attribute(schema, name, value);
+
+  if(options.hashKey &amp;&amp; options.rangeKey) {
+    throw new errors.SchemaError('Cannot be both hashKey and rangeKey: ' + name);
+  }
+
+  if(options.hashKey || (!schema.hashKey &amp;&amp; !options.rangeKey)) {
+    schema.hashKey = attr;
+  }
+
+  if(options.rangeKey) {
+    schema.rangeKey = attr;
+  }
+
+  // check for global attributes in the tree..
+  if(attr.indexes) {
+    for(var indexName in attr.indexes) {
+      var index = attr.indexes[indexName];
+      if(schema.indexes.global[indexName] || schema.indexes.local[indexName]) {
+        throw new errors.SchemaError('Duplicate index name: ' + indexName);
+      }
+      if(index.global) {
+        schema.indexes.global[indexName] = attr;
+      } else {
+        schema.indexes.local[indexName] = attr;
+      }
+    }
+  }
+
+  return attr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+**conditionValues**: object
+
+A map of values for the condition expression. Note that in order for
+automatic object conversion to work, the keys in this object must
+match schema attribute names.
+
+#### Model.<span class="apidocCodeKeywordSpan">create</span>(object, options, callback)
+
+Creates a new instance of the model and save the item in the table.
+
+```js
+Dog.create({
+ownerId: 4,
+name: 'Odie',
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Model" id="apidoc.module.dynamoose.Model">module dynamoose.Model</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.Model" id="apidoc.element.dynamoose.Model.Model">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Model
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Model(obj) {
+  this.$__.isNew = true;
+
+  for(var key in obj) {
+    this[key] = obj[key];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.batchDelete" id="apidoc.element.dynamoose.Model.batchDelete">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchDelete
+        <span class="apidocSignatureSpan">(NewModel, keys, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">batchDelete = function (NewModel, keys, options, next) {
+  debug('BatchDel %j', keys);
+  var deferred = Q.defer();
+
+  if(!(keys instanceof Array)) {
+    deferred.reject(new errors.ModelError('batchDelete requires keys to be an array'));
+    return deferred.promise.nodeify(next);
+  }
+
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = NewModel.$__.schema;
+  var newModel$ = NewModel.$__;
+  var hashKeyName = schema.hashKey.name;
+
+  var batchRequests = toBatchChunks(newModel$.name, keys, MAX_BATCH_WRITE_SIZE, function(key) {
+    var key_element = {};
+    key_element[hashKeyName] = schema.hashKey.toDynamo(key[hashKeyName]);
+
+    if(schema.rangeKey) {
+      key_element[schema.rangeKey.name] = schema.rangeKey.toDynamo(key[schema.rangeKey.name]);
+    }
+
+    return {
+      DeleteRequest: {
+        Key: key_element
+      }
+    };
+  });
+
+  var batchDelete = function() {
+    batchWriteItems(NewModel, batchRequests).then(function (result) {
+      deferred.resolve(result);
+    }).fail(function (err) {
+      deferred.reject(err);
+    });
+  };
+
+  if(newModel$.options.waitForActive) {
+    newModel$.table.waitForActive().then(batchDelete);
+  } else {
+    batchDelete();
+  }
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+odie.delete(function(err) {
+if(err) { return console.log(err); }
+console.log('Bye bye Odie');
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">batchDelete</span>(keys, options, callback)
+
+Deletes multiple items from the table.
+
+```js
+Dog.batchDelete([
+{ ownerId: 2, name: 'Princes' },
+{ ownerId: 3, name: 'Toto' },
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.batchGet" id="apidoc.element.dynamoose.Model.batchGet">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchGet
+        <span class="apidocSignatureSpan">(NewModel, keys, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">batchGet = function (NewModel, keys, options, next) {
+  debug('BatchGet %j', keys);
+  var deferred = Q.defer();
+  if(!(keys instanceof Array)) {
+    deferred.reject(new errors.ModelError('batchGet requires keys to be an array'));
+    return deferred.promise.nodeify(next);
+  }
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = NewModel.$__.schema;
+
+  var hashKeyName = schema.hashKey.name;
+  keys = keys.map(function (key) {
+    if(!key[hashKeyName]) {
+      var ret = {};
+      ret[hashKeyName] = key;
+      return ret;
+    }
+    return key;
+  });
+
+  if(schema.rangeKey &amp;&amp; !keys.every(function (key) { return key[schema.rangeKey.name]; })) {
+    deferred.reject(
+      new errors.ModelError('Range key required: ' + schema.rangeKey.name)
+    );
+    return deferred.promise.nodeify(next);
+  }
+
+  var batchReq = {
+    RequestItems: {}
+  };
+
+  var getReq = {};
+  batchReq.RequestItems[NewModel.$__.name] = getReq;
+
+  getReq.Keys = keys.map(function (key) {
+    var ret = {};
+    ret[hashKeyName] = schema.hashKey.toDynamo(key[hashKeyName]);
+
+    if(schema.rangeKey) {
+      var rangeKeyName = schema.rangeKey.name;
+      ret[rangeKeyName] = schema.rangeKey.toDynamo(key[rangeKeyName]);
+    }
+    return ret;
+  });
+
+  if(options.attributes) {
+    getReq.AttributesToGet = options.attributes;
+  }
+
+  if(options.consistent) {
+    getReq.ConsistentRead = true;
+  }
+
+  var newModel$ = NewModel.$__;
+
+  function batchGet () {
+    debug('batchGetItem', batchReq);
+    newModel$.base.ddb().batchGetItem(batchReq, function(err, data) {
+      if(err) {
+        debug('Error returned by batchGetItem', err);
+        return deferred.reject(err);
+      }
+      debug('batchGetItem response', data);
+
+      if(!Object.keys(data).length) {
+        return deferred.resolve();
+      }
+
+      function toModel (item) {
+        var model = new NewModel();
+        model.$__.isNew = false;
+        schema.parseDynamo(model, item);
+
+        debug('batchGet parsed model', model);
+
+        return model;
+      }
+
+      var models = data.Responses[newModel$.name] ? data.Responses[newModel$.name].map(toModel) : [];
+      if (data.UnprocessedKeys[newModel$.name]) {
+        // convert unprocessed keys back to dynamoose format
+        models.unprocessed = data.UnprocessedKeys[newModel$.name].Keys.map(function (key) {
+          var ret = {};
+          ret[hashKeyName] = schema.hashKey.parseDynamo(key[hashKeyName]);
+
+          if(schema.rangeKey) {
+            var rangeKeyName = schema.rangeKey.name;
+            ret[rangeKeyName] = schema.rangeKey.parseDynamo(key[rangeKeyName]);
+          }
+          return ret;
+        });
+      }
+      deferred.resolve(models);
+    });
+  }
+
+
+  if(newModel$.options.waitForActive) {
+    newModel$.table.waitForActive().then(batchGet);
+  } else {
+    batchGet();
+  }
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+Dog.get({ownerId: 4, name: 'Odie'}, function(err, odie) {
+if(err) { return console.log(err); }
+console.log('Odie is a ' + odie.breed);
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">batchGet</span>(keys, options, callback)
+
+Gets multiple items from the table.
+
+```js
+Dog.batchGet([{ownerId: 4, name: 'Odie'}, {ownerId: 5, name: 'Lassie'}], function (err, dogs) {
+if (err) { return console.log(err); }
+console.log('Retrieved two dogs: ' + dogs);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.batchPut" id="apidoc.element.dynamoose.Model.batchPut">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>batchPut
+        <span class="apidocSignatureSpan">(NewModel, items, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">batchPut = function (NewModel, items, options, next) {
+  debug('BatchPut %j', items);
+  var deferred = Q.defer();
+
+  if(!(items instanceof Array)) {
+    deferred.reject(new errors.ModelError('batchPut requires items to be an array'));
+    return deferred.promise.nodeify(next);
+  }
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = NewModel.$__.schema;
+  var newModel$ = NewModel.$__;
+
+  var batchRequests = toBatchChunks(newModel$.name, items, MAX_BATCH_WRITE_SIZE, function(item) {
+    return {
+      PutRequest: {
+        Item: schema.toDynamo(item)
+      }
+    };
+  });
+
+  var batchPut = function() {
+    batchWriteItems(NewModel, batchRequests).then(function (result) {
+      deferred.resolve(result);
+    }).fail(function (err) {
+      deferred.reject(err);
+    });
+  };
+
+  if(newModel$.options.waitForActive) {
+    newModel$.table.waitForActive().then(batchPut);
+  } else {
+    batchPut();
+  }
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  conditionValues: { ownerId: 4 }
+}, function (err) {
+if(err) { return console.log(err); }
+console.log('Ta-da!');
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">batchPut</span>(items, options, callback)
+
+Puts multiple items in the table. Will overwrite existing items.
+
+```js
+Dog.batchPut([
+{
+  ownerId: 2,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.compile" id="apidoc.element.dynamoose.Model.compile">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>compile
+        <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compile(name, schema, options, base) {
+  debug('compiling NewModel %s', name);
+
+  var table = new Table(name, schema, options, base);
+
+<span class="apidocCodeCommentSpan">  /*jshint validthis: true */
+</span>  function NewModel (obj) {
+    Model.call(this, obj);
+    applyVirtuals(this, schema);
+  }
+
+  util.inherits(NewModel, Model);
+
+  // minimize what is restricted
+  NewModel.prototype.$__ = {
+    table: table,
+    base: base,
+    name: name,
+    schema: schema,
+    options: options
+  };
+  NewModel.$__ = NewModel.prototype.$__;
+
+  NewModel.get = function (key, options, next) {
+    return Model.get(NewModel, key, options, next);
+  };
+
+  NewModel.update = function (key, update, options, next) {
+    return Model.update(NewModel, key, update, options, next);
+  };
+
+  NewModel.delete = function (key, options, next) {
+    return Model.delete(NewModel, key, options, next);
+  };
+
+  NewModel.query = function (query, options, next) {
+    return Model.query(NewModel, query, options, next);
+  };
+
+  NewModel.queryOne = function (query, options, next) {
+    return Model.queryOne(NewModel, query, options, next);
+  };
+
+  NewModel.scan = function (filter, options, next) {
+    return Model.scan(NewModel, filter, options, next);
+  };
+
+  NewModel.create = function (obj, options, next) {
+    return Model.create(NewModel, obj, options, next);
+  };
+
+  NewModel.batchGet = function (keys, options, next) {
+    return Model.batchGet(NewModel, keys, options, next);
+  };
+
+  NewModel.batchPut = function (keys, options, next) {
+    return Model.batchPut(NewModel, keys, options, next);
+  };
+
+  NewModel.batchDelete = function (keys, options, next) {
+    return Model.batchDelete(NewModel, keys, options, next);
+  };
+
+  NewModel.waitForActive = function (timeout, next) {
+    return table.waitForActive(timeout, next);
+  };
+
+
+  // apply methods and statics
+  applyMethods(NewModel, schema);
+  applyStatics(NewModel, schema);
+
+  // set up middleware
+  for (var k in hooks) {
+    NewModel[k] = hooks[k];
+  }
+
+  table.init(function (err) {
+    if(err) {
+      throw err;
+    }
+  });
+
+  return NewModel;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.create" id="apidoc.element.dynamoose.Model.create">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>create
+        <span class="apidocSignatureSpan">(NewModel, obj, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (NewModel, obj, options, next) {
+  options = options || {};
+
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  if(options.overwrite === null || options.overwrite === undefined) {
+    options.overwrite = false;
+  }
+
+  var model = new NewModel(obj);
+  return model.save(options, next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+**conditionValues**: object
+
+A map of values for the condition expression. Note that in order for
+automatic object conversion to work, the keys in this object must
+match schema attribute names.
+
+#### Model.<span class="apidocCodeKeywordSpan">create</span>(object, options, callback)
+
+Creates a new instance of the model and save the item in the table.
+
+```js
+Dog.create({
+ownerId: 4,
+name: 'Odie',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.delete" id="apidoc.element.dynamoose.Model.delete">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>delete
+        <span class="apidocSignatureSpan">(NewModel, key, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (NewModel, key, options, next) {
+
+  var schema = NewModel.$__.schema;
+
+  var hashKeyName = schema.hashKey.name;
+  if(!key[hashKeyName]) {
+    var keyVal = key;
+    key = {};
+    key[hashKeyName] = keyVal;
+  }
+
+  if(schema.rangeKey &amp;&amp; !key[schema.rangeKey.name]) {
+    var deferred = Q.defer();
+    deferred.reject(new errors.ModelError('Range key required: %s', schema.hashKey.name));
+    return deferred.promise.nodeify(next);
+  }
+
+  var model = new NewModel(key);
+  return model.delete(options, next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+Dog.batchGet([{ownerId: 4, name: 'Odie'}, {ownerId: 5, name: 'Lassie'}], function (err, dogs) {
+if (err) { return console.log(err); }
+console.log('Retrieved two dogs: ' + dogs);
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">delete</span>(key, options, callback)
+
+Deletes an item from the table.
+
+```js
+Dog.delete({ownerId: 4, name: 'Odie'}, function(err) {
+if(err) { return console.log(err); }
+console.log('Bye bye Odie');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.get" id="apidoc.element.dynamoose.Model.get">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>get
+        <span class="apidocSignatureSpan">(NewModel, key, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (NewModel, key, options, next) {
+  debug('Get %j', key);
+  var deferred = Q.defer();
+  if(key === null || key === undefined) {
+    deferred.reject(new errors.ModelError('Key required to get item'));
+    return deferred.promise.nodeify(next);
+  }
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = NewModel.$__.schema;
+
+  var hashKeyName = schema.hashKey.name;
+  if(!key[hashKeyName]) {
+    var keyVal = key;
+    key = {};
+    key[hashKeyName] = keyVal;
+  }
+
+  if(schema.rangeKey &amp;&amp; !key[schema.rangeKey.name]) {
+    deferred.reject(
+      new errors.ModelError('Range key required: ' + schema.rangeKey.name)
+    );
+    return deferred.promise.nodeify(next);
+  }
+
+
+  var getReq = {
+    TableName: NewModel.$__.name,
+    Key: {}
+  };
+
+  try {
+    getReq.Key[hashKeyName] = schema.hashKey.toDynamo(key[hashKeyName]);
+
+    if(schema.rangeKey) {
+      var rangeKeyName = schema.rangeKey.name;
+      getReq.Key[rangeKeyName] = schema.rangeKey.toDynamo(key[rangeKeyName]);
+    }
+  } catch (err) {
+    deferred.reject(err);
+    return deferred.promise.nodeify(next);
+  }
+
+  if(options.attributes) {
+    getReq.AttributesToGet = options.attributes;
+  }
+
+  if(options.consistent) {
+    getReq.ConsistentRead = true;
+  }
+
+  var newModel$ = NewModel.$__;
+
+  function get () {
+    debug('getItem', getReq);
+    newModel$.base.ddb().getItem(getReq, function(err, data) {
+      if(err) {
+        debug('Error returned by getItem', err);
+        return deferred.reject(err);
+      }
+      // console.log('RESP',JSON.stringify(data, null, 4));
+      debug('getItem response', data);
+
+      if(!Object.keys(data).length) {
+        return deferred.resolve();
+      }
+
+      try {
+        var model = new NewModel();
+
+        model.$__.isNew = false;
+        schema.parseDynamo(model, data.Item);
+
+        debug('getItem parsed model', model);
+
+        deferred.resolve(model);
+      } catch (err) {
+        deferred.reject(err);
+      }
+    });
+  }
+
+
+  if(newModel$.options.waitForActive) {
+    newModel$.table.waitForActive().then(get);
+  } else {
+    get();
+  }
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Create a new cat object
+var garfield = new Cat({id: 666, name: 'Garfield'});
+
+// Save to DynamoDB
+garfield.save();
+
+// Lookup in DynamoDB
+Cat.<span class="apidocCodeKeywordSpan">get</span>(666)
+.then(function (badCat) {
+  console.log('Never trust a smiling cat. - ' + badCat.name);
+});
+```
+
+## API
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.query" id="apidoc.element.dynamoose.Model.query">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>query
+        <span class="apidocSignatureSpan">(NewModel, query, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (NewModel, query, options, next) {
+  if(typeof options === 'function') {
+    next = options;
+    options = null;
+  }
+
+  query = new Query(NewModel, query, options);
+
+  if(next) {
+    query.exec(next);
+  }
+
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  { ownerId: 5, name: 'Lassie'}
+], function (err) {
+  if (err) { return console.log(err); }
+  console.log('Bye bye my friends');
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">query</span>(query, options, callback)
+
+Queries a table or index.  If callback is not provided, then a Query object is returned. See [Query](#query).
+
+#### Model.queryOne(query, options, callback)
+
+Same functionality as query except only return the first result object (if any). See [Query](#query).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.queryOne" id="apidoc.element.dynamoose.Model.queryOne">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>queryOne
+        <span class="apidocSignatureSpan">(NewModel, query, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryOne = function (NewModel, query, options, next) {
+  if(typeof options === 'function') {
+    next = options;
+    options = null;
+  }
+
+  query = new Query(NewModel, query, options);
+  query.one();
+
+  if(next) {
+    query.exec(next);
+  }
+
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+#### Model.query(query, options, callback)
+
+Queries a table or index.  If callback is not provided, then a Query object is returned. See [Query](#query).
+
+#### Model.<span class="apidocCodeKeywordSpan">queryOne</span>(query, options, callback)
+
+Same functionality as query except only return the first result object (if any). See [Query](#query).
+
+#### Model.scan(filter, options, callback)
+
+Scans a table. If callback is not provided, then a Scan object is returned. See [Scan](#scan).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.scan" id="apidoc.element.dynamoose.Model.scan">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>scan
+        <span class="apidocSignatureSpan">(NewModel, filter, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scan = function (NewModel, filter, options, next) {
+  if(typeof options === 'function') {
+    next = options;
+    options = null;
+  }
+
+  var scan = new Scan(NewModel, filter, options);
+
+  if(next) {
+    scan.exec(next);
+  }
+
+  return scan;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Queries a table or index.  If callback is not provided, then a Query object is returned. See [Query](#query).
+
+#### Model.queryOne(query, options, callback)
+
+Same functionality as query except only return the first result object (if any). See [Query](#query).
+
+#### Model.<span class="apidocCodeKeywordSpan">scan</span>(filter, options, callback)
+
+Scans a table. If callback is not provided, then a Scan object is returned. See [Scan](#scan).
+
+#### Model.update(key, update, options, callback)
+
+Updates and existing item in the table. Three types of updates: $PUT, $ADD, and $DELETE. Refer to DynamoDB's updateItem documentation
+ for details on how PUT, ADD, and DELETE work.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.update" id="apidoc.element.dynamoose.Model.update">
+        function <span class="apidocSignatureSpan">dynamoose.Model.</span>update
+        <span class="apidocSignatureSpan">(NewModel, key, update, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (NewModel, key, update, options, next) {
+  debug('Update %j', key);
+  var deferred = Q.defer();
+  if(key === null || key === undefined) {
+    deferred.reject(new errors.ModelError('Key required to get item'));
+    return deferred.promise.nodeify(next);
+  }
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = NewModel.$__.schema;
+
+  var hashKeyName = schema.hashKey.name;
+  if(!key[hashKeyName]) {
+    var keyVal = key;
+    key = {};
+    key[hashKeyName] = keyVal;
+  }
+
+  if(schema.rangeKey &amp;&amp; !key[schema.rangeKey.name]) {
+    deferred.reject(new errors.ModelError('Range key required: ' + schema.rangeKey.name));
+    return deferred.promise.nodeify(next);
+  }
+
+
+  var updateReq = {
+    TableName: NewModel.$__.name,
+    Key: {},
+    ExpressionAttributeNames: {},
+    ExpressionAttributeValues: {},
+    ReturnValues: 'ALL_NEW'
+  };
+  processCondition(updateReq, options, NewModel.$__.schema);
+
+  try {
+    updateReq.Key[hashKeyName] = schema.hashKey.toDynamo(key[hashKeyName]);
+
+    if(schema.rangeKey) {
+      var rangeKeyName = schema.rangeKey.name;
+      updateReq.Key[rangeKeyName] = schema.rangeKey.toDynamo(key[rangeKeyName]);
+    }
+  } catch(err) {
+    deferred.reject(err);
+    return deferred.promise.nodeify(next);
+  }
+
+  // determine the set of operations to be executed
+  var operations = {
+    SET: {},
+    ADD: {},
+    REMOVE: {}
+  };
+  if(update.$PUT || (!update.$PUT &amp;&amp; !update.$DELETE &amp;&amp; !update.$ADD)) {
+    var updatePUT = update;
+    if(update.$PUT) {
+      updatePUT = update.$PUT;
+    }
+    for(var putItem in updatePUT) {
+      var putAttr = schema.attributes[putItem];
+      if(putAttr) {
+        var val = updatePUT[putItem];
+
+        var removeParams = val === null || val === undefined || val === '';
+
+        if (!options.allowEmptyArray) {
+          removeParams = removeParams || (Array.isArray(val) &amp;&amp; val.length === 0);
+        }
+
+        if(removeParams) {
+          operations.REMOVE[putItem] = null;
+        } else {
+          try {
+            operations.SET[putItem] = putAttr.toDynamo(val);
+          } catch (err) {
+            deferred.reject(err);
+            return deferred.promise.nodeify(next);
+          }
+        }
+      }
+    }
+  }
+
+  if(update.$DELETE) {
+    for(var deleteItem in update.$DELETE) {
+      var deleteAttr = schema.attributes[deleteItem];
+      if(deleteAttr) {
+        var delVal = update.$DELETE[deleteItem];
+        if(delVal !== null &amp;&amp; delVal !== undefined) {
+          try {
+            operations.REMOVE[deleteItem] = deleteAttr.toDynamo(delVal);
+          } catch (err) {
+            deferred.reject(err);
+            return deferred.promise.nodeify(next);
+          }
+        } else {
+          operations.REMOVE[deleteItem] = null;
+        }
+      }
+    }
+  }
+
+  if(update.$ADD) {
+    for(var addItem in update.$ADD) {
+      var addAttr = schema.attributes[addItem];
+      if(addAttr) {
+        try {
+          operations.ADD[addItem] = addAttr.toDynamo(update.$ADD[addItem]);
+        } catch (err) {
+          deferred.reject(err);
+          return deferred.promise.nodeify(next);
+        }
+      }
+    }
+  }
+
+  // construct the update expression
+  //
+  // we have to use update expressions because we are supporting
+  // condition expressions, and you can't mix expressions with
+  // non-expressions
+  var attrCount = 0;
+  updateReq.UpdateExpression = '';
+  var first, k;
+  for(var op in operations) {
+    if(Object.keys(operations[op]).length) {
+      if (updateReq.UpdateExpression) {
+        updateReq.UpdateExpression += ' ';
+      }
+      updateReq.UpdateExpression += op + ' ';
+      first = true;
+      for(k in operations[op]) {
+        if(first) {
+          first = false;
+        } else {
+          updateReq.UpdateExpression += ',';
+        }
+        var attrName = '#_n' + attrCount;
+        var valName = ':_p' + attrCount;
+        updateReq.UpdateExpression += attrName;
+        updateReq.ExpressionAttributeNames[attrName] = k;
+        if(operations[op][k]) {
+          updateReq.UpdateExpression += ' ' + (op === 'SET' ? '= ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Configures and returns the AWS.DynamoDB object
+
+#### dynamoose.AWS
+
+AWS object for dynamoose.  Used to configure AWS for dynamoose.
+
+```js
+dynamoose.AWS.config.<span class="apidocCodeKeywordSpan">update</span>({
+  accessKeyId: 'AKID',
+  secretAccessKey: 'SECRET',
+  region: 'us-east-1'
+});
+```
+
+#### dynamoose.setDefaults(options)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Model.prototype" id="apidoc.module.dynamoose.Model.prototype">module dynamoose.Model.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.prototype.delete" id="apidoc.element.dynamoose.Model.prototype.delete">
+        function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>delete
+        <span class="apidocSignatureSpan">(options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (options, next) {
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+
+  var schema = this.$__.schema;
+
+  var hashKeyName = schema.hashKey.name;
+
+  var deferred = Q.defer();
+
+  if(this[hashKeyName] === null || this[hashKeyName] === undefined) {
+    deferred.reject(new errors.ModelError('Hash key required: %s', hashKeyName));
+    return deferred.promise.nodeify(next);
+  }
+
+  if(schema.rangeKey &amp;&amp;
+    (this[schema.rangeKey.name] === null || this[schema.rangeKey.name] === undefined)) {
+    deferred.reject(new errors.ModelError('Range key required: %s', schema.hashKey.name));
+    return deferred.promise.nodeify(next);
+  }
+
+
+  var getDelete = {
+    TableName: this.$__.name,
+    Key: {}
+  };
+
+  try {
+    getDelete.Key[hashKeyName] = schema.hashKey.toDynamo(this[hashKeyName]);
+
+    if(schema.rangeKey) {
+      var rangeKeyName = schema.rangeKey.name;
+      getDelete.Key[rangeKeyName] = schema.rangeKey.toDynamo(this[rangeKeyName]);
+    }
+  } catch (err) {
+    deferred.reject(err);
+    return deferred.promise.nodeify(next);
+  }
+
+  if(options.update) {
+    getDelete.ReturnValues = 'ALL_OLD';
+    getDelete.ConditionExpression = 'attribute_exists(' + schema.hashKey.name + ')';
+  }
+
+  var model = this;
+  var model$ = this.$__;
+
+  function deleteItem() {
+
+    debug('deleteItem', getDelete);
+    model$.base.ddb().deleteItem(getDelete, function(err, data) {
+      if(err) {
+        debug('Error returned by deleteItem', err);
+        return deferred.reject(err);
+      }
+      debug('deleteItem response', data);
+
+      if(options.update) {
+        if(data.Attributes) {
+          schema.parseDynamo(model, data.Attributes);
+          debug('deleteItem parsed model', model);
+        }
+      }
+
+      deferred.resolve(model);
+    });
+  }
+
+  if(model$.options.waitForActive) {
+    model$.table.waitForActive().then(deleteItem);
+  } else {
+    deleteItem();
+  }
+
+  return deferred.promise.nodeify(next);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+Dog.batchGet([{ownerId: 4, name: 'Odie'}, {ownerId: 5, name: 'Lassie'}], function (err, dogs) {
+if (err) { return console.log(err); }
+console.log('Retrieved two dogs: ' + dogs);
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">delete</span>(key, options, callback)
+
+Deletes an item from the table.
+
+```js
+Dog.delete({ownerId: 4, name: 'Odie'}, function(err) {
+if(err) { return console.log(err); }
+console.log('Bye bye Odie');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.prototype.put" id="apidoc.element.dynamoose.Model.prototype.put">
+        function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>put
+        <span class="apidocSignatureSpan">(options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (options, next) {
+  debug('put', this);
+  var deferred = Q.defer();
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+  if(options.overwrite === null || options.overwrite === undefined) {
+    options.overwrite = true;
+  }
+
+  var schema = this.$__.schema;
+  var item = {
+    TableName: this.$__.name
+  };
+  try {
+    item.Item = schema.toDynamo(this);
+  } catch(err) {
+    deferred.reject(err);
+    return deferred.promise.nodeify(next);
+  }
+
+  if(!options.overwrite) {
+    item.ConditionExpression = 'attribute_not_exists(' + schema.hashKey.name + ')';
+  }
+  processCondition(item, options, this.$__.schema);
+
+  debug('putItem', item);
+
+  var model = this;
+  var model$ = this.$__;
+
+  function put() {
+    model$.base.ddb().putItem(item, function(err) {
+      if(err) {
+        deferred.reject(err);
+      }
+      deferred.resolve(model);
+    });
+
+    return deferred.promise.nodeify(next);
+  }
+
+
+  if(model$.options.waitForActive) {
+    return model$.table.waitForActive().then(put);
+  }
+
+  return put();
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+name: 'Odie',
+breed: 'Beagle',
+color: ['Tan'],
+cartoon: true
+});
+```
+
+#### model.<span class="apidocCodeKeywordSpan">put</span>(options, callback) &amp; model.save(options, callback)
+
+Puts the item in the DynamoDB table.  Will overwrite the item.
+
+```js
+odie.save(function (err) {
+if(err) { return console.log(err); }
+console.log('Ta-da!');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Model.prototype.save" id="apidoc.element.dynamoose.Model.prototype.save">
+        function <span class="apidocSignatureSpan">dynamoose.Model.prototype.</span>save
+        <span class="apidocSignatureSpan">(options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function (options, next) {
+  debug('put', this);
+  var deferred = Q.defer();
+  options = options || {};
+  if(typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+  if(options.overwrite === null || options.overwrite === undefined) {
+    options.overwrite = true;
+  }
+
+  var schema = this.$__.schema;
+  var item = {
+    TableName: this.$__.name
+  };
+  try {
+    item.Item = schema.toDynamo(this);
+  } catch(err) {
+    deferred.reject(err);
+    return deferred.promise.nodeify(next);
+  }
+
+  if(!options.overwrite) {
+    item.ConditionExpression = 'attribute_not_exists(' + schema.hashKey.name + ')';
+  }
+  processCondition(item, options, this.$__.schema);
+
+  debug('putItem', item);
+
+  var model = this;
+  var model$ = this.$__;
+
+  function put() {
+    model$.base.ddb().putItem(item, function(err) {
+      if(err) {
+        deferred.reject(err);
+      }
+      deferred.resolve(model);
+    });
+
+    return deferred.promise.nodeify(next);
+  }
+
+
+  if(model$.options.waitForActive) {
+    return model$.table.waitForActive().then(put);
+  }
+
+  return put();
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Create cat model with default options
+var Cat = dynamoose.model('Cat', { id: Number, name: String });
+
+// Create a new cat object
+var garfield = new Cat({id: 666, name: 'Garfield'});
+
+// Save to DynamoDB
+garfield.<span class="apidocCodeKeywordSpan">save</span>();
+
+// Lookup in DynamoDB
+Cat.get(666)
+.then(function (badCat) {
+  console.log('Never trust a smiling cat. - ' + badCat.name);
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Query" id="apidoc.module.dynamoose.Query">module dynamoose.Query</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.Query" id="apidoc.element.dynamoose.Query.Query">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Query
+        <span class="apidocSignatureSpan">(Model, query, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Query(Model, query, options) {
+  this.Model = Model;
+  this.options = options || {};
+
+
+  // {
+  //   hashKey: {
+  //     name: 'name',
+  //     value: 'value'
+  //   },
+  //   rangeKey: {
+  //     name: 'name',
+  //     value: 'value',
+  //     comparison: 'string'
+  //   }
+  // }
+  this.query = {hashKey: {}};
+
+  this.filters = {};
+  this.buildState = false;
+
+  var hashKeyName, hashKeyVal;
+  if(typeof query === 'string') {
+    this.buildState = 'hashKey';
+    this.query.hashKey.name = query;
+  } else if (query.hash) {
+    hashKeyName = Object.keys(query.hash)[0];
+    hashKeyVal = query.hash[hashKeyName];
+    if(hashKeyVal.eq !== null &amp;&amp; hashKeyVal.eq !== undefined) {
+      hashKeyVal = hashKeyVal.eq;
+    }
+    this.query.hashKey.name = hashKeyName;
+    this.query.hashKey.value = hashKeyVal;
+
+    if(query.range) {
+      var rangeKeyName = Object.keys(query.range)[0];
+      var rangeKeyVal = query.range[rangeKeyName];
+      var rangeKeyComp = Object.keys(rangeKeyVal)[0];
+      rangeKeyVal = rangeKeyVal[rangeKeyComp];
+      this.query.rangeKey = {
+        name: rangeKeyName,
+        value: rangeKeyVal,
+        comparison: rangeKeyComp
+      };
+    }
+  } else {
+    hashKeyName = Object.keys(query)[0];
+    hashKeyVal = query[hashKeyName];
+    if(hashKeyVal.eq !== null &amp;&amp; hashKeyVal.eq !== undefined) {
+      hashKeyVal = hashKeyVal.eq;
+    }
+    this.query.hashKey.name = hashKeyName;
+    this.query.hashKey.value = hashKeyVal;  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Query.prototype" id="apidoc.module.dynamoose.Query.prototype">module dynamoose.Query.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.and" id="apidoc.element.dynamoose.Query.prototype.and">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>and
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">and = function () {
+  this.options.or = false;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Set the range key of the table or index to query.
+
+#### query.filter(filter)
+
+Set the atribulte on which to filter.
+
+#### query.<span class="apidocCodeKeywordSpan">and</span>()
+
+Use add logic for filters.
+
+#### query.or()
+
+Use or logic for filters.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.ascending" id="apidoc.element.dynamoose.Query.prototype.ascending">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>ascending
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ascending = function () {
+  this.options.descending = false;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Query with consistent read.
+
+#### query.descending()
+
+Sort in descending order.
+
+#### query.<span class="apidocCodeKeywordSpan">ascending</span>()
+
+Sort in ascending order (default).
+
+#### query.startAt(key)
+
+Start query at key.  Use LastEvaluatedKey returned in query.exec() callback.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.attributes" id="apidoc.element.dynamoose.Query.prototype.attributes">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>attributes
+        <span class="apidocSignatureSpan">(attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attributes = function (attributes) {
+  this.options.attributes = attributes;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Sort in ascending order (default).
+
+#### query.startAt(key)
+
+Start query at key.  Use LastEvaluatedKey returned in query.exec() callback.
+
+#### query.<span class="apidocCodeKeywordSpan">attributes</span>(attributes)
+
+Set the attributes to return.
+
+### Scan
+
+
+#### Model.scan(filter, options, callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.beginsWith" id="apidoc.element.dynamoose.Query.prototype.beginsWith">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>beginsWith
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">beginsWith = function (val) {
+  if(this.notState) {
+    throw new errors.QueryError('Invalid Query state: beginsWith() cannot follow not()');
+  }
+  return this.compVal([val], 'BEGINS_WITH');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter greater than or equal value.
+
+#### query.gt(value)
+
+Range key or filter greater than the value.
+
+#### query.<span class="apidocCodeKeywordSpan">beginsWith</span>(value)
+
+Range key or filter begins with value
+
+#### query.between(a, b)
+
+Range key or filter is between values a and b.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.between" id="apidoc.element.dynamoose.Query.prototype.between">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>between
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">between = function (a, b) {
+  if(this.notState) {
+    throw new errors.QueryError('Invalid Query state: between() cannot follow not()');
+  }
+  return this.compVal([a, b], 'BETWEEN');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter greater than the value.
+
+#### query.beginsWith(value)
+
+Range key or filter begins with value
+
+#### query.<span class="apidocCodeKeywordSpan">between</span>(a, b)
+
+Range key or filter is between values a and b.
+
+Attribute is greater than the value.
+
+#### scan.contains(value)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.compVal" id="apidoc.element.dynamoose.Query.prototype.compVal">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>compVal
+        <span class="apidocSignatureSpan">(vals, comp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compVal = function (vals, comp) {
+  if(this.buildState === 'hashKey') {
+    if(comp !== 'EQ') {
+      throw new errors.QueryError('Invalid query state; eq must follow query()');
+    }
+    this.query.hashKey.value = vals[0];
+  } else if (this.buildState === 'rangeKey'){
+    if(VALID_RANGE_KEYS.indexOf(comp) &lt; 0) {
+      throw new errors.QueryError('Invalid query state; %s must follow filter()', comp);
+    }
+    this.query.rangeKey.values = vals;
+    this.query.rangeKey.comparison = comp;
+  } else if (this.buildState === 'filter') {
+    this.filters[this.currentFilter].values = vals;
+    this.filters[this.currentFilter].comparison = comp;
+  } else {
+    throw new errors.QueryError('Invalid query state; %s must follow query(), where() or filter()', comp);
+  }
+
+  this.buildState = false;
+  this.notState = false;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Query.prototype.not = function() {
+  this.notState = true;
+  return this;
+};
+
+Query.prototype.null = function() {
+  if(this.notState) {
+    return this.<span class="apidocCodeKeywordSpan">compVal</span>(null, 'NOT_NULL');
+  } else {
+    return this.compVal(null, 'NULL');
+  }
+};
+
+
+Query.prototype.eq = function (val) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.consistent" id="apidoc.element.dynamoose.Query.prototype.consistent">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>consistent
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">consistent = function () {
+  this.options.consistent = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter is in values array.
+
+#### query.limit(limit)
+
+Limit the number of responses.
+
+#### query.<span class="apidocCodeKeywordSpan">consistent</span>()
+
+Query with consistent read.
+
+#### query.descending()
+
+Sort in descending order.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.contains" id="apidoc.element.dynamoose.Query.prototype.contains">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>contains
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">contains = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'NOT_CONTAINS');
+  } else {
+    return this.compVal([val], 'CONTAINS');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### query.between(a, b)
+
+Range key or filter is between values a and b.
+
+Attribute is greater than the value.
+
+#### scan.<span class="apidocCodeKeywordSpan">contains</span>(value)
+
+Filter contains the value.
+
+#### scan.beginsWith(value)
+
+Filter begins with the value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.descending" id="apidoc.element.dynamoose.Query.prototype.descending">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>descending
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">descending = function () {
+  this.options.descending = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Limit the number of responses.
+
+#### query.consistent()
+
+Query with consistent read.
+
+#### query.<span class="apidocCodeKeywordSpan">descending</span>()
+
+Sort in descending order.
+
+#### query.ascending()
+
+Sort in ascending order (default).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.eq" id="apidoc.element.dynamoose.Query.prototype.eq">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>eq
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">eq = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'NE');
+  } else {
+    return this.compVal([val], 'EQ');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Query
+
+#### Model.query(query, options, callback)
+
+Queries a table or index. The query parameter can either the the hash key of the table or global index or a complete query object
+. If the callback is provided, the exec command is called automatically, and the query parameter must be a query object.
+
+```js
+Dog.query('breed').<span class="apidocCodeKeywordSpan">eq</span>('Beagle').exec(function (err, dogs) {
+// Look at all the beagles
+});
+```
+
+```js
+Dog.query({breed: {eq: 'Beagle'} }, function (err, dogs) {
+// Look at all the beagles
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.exec" id="apidoc.element.dynamoose.Query.prototype.exec">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>exec
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exec = function (next) {
+  debug('exec query for ', this.query);
+  var Model = this.Model;
+  var Model$ = Model.$__;
+  var schema = Model$.schema;
+  var options = this.options;
+
+  debug('Query with schema', schema);
+
+  var queryReq = {
+    TableName: Model.$__.name,
+    KeyConditions: {}
+  };
+
+  var indexName, index;
+  if(schema.hashKey.name !== this.query.hashKey.name) {
+    debug('query is on global secondary index');
+    for(indexName in schema.indexes.global) {
+      index = schema.indexes.global[indexName];
+      if(index.name === this.query.hashKey.name) {
+        debug('using index', indexName);
+        queryReq.IndexName = indexName;
+        break;
+      }
+    }
+
+  }
+
+  var hashAttr = schema.attributes[this.query.hashKey.name];
+
+  queryReq.KeyConditions[this.query.hashKey.name] = {
+    AttributeValueList: [hashAttr.toDynamo(this.query.hashKey.value)],
+    ComparisonOperator: 'EQ'
+  };
+
+  var i, val;
+
+  if(this.query.rangeKey) {
+    var rangeKey = this.query.rangeKey;
+    var rangeAttr = schema.attributes[rangeKey.name];
+
+    if(!queryReq.IndexName &amp;&amp; schema.rangeKey.name !== rangeKey.name) {
+      debug('query is on local secondary index');
+      for(indexName in schema.indexes.local) {
+        index = schema.indexes.local[indexName];
+        if(index.name === rangeKey.name) {
+          debug('using local index', indexName);
+          queryReq.IndexName = indexName;
+          break;
+        }
+      }
+    }
+
+    if(!rangeKey || rangeKey.values === undefined) {
+      debug('No range key value (i.e. get all)');
+    } else {
+      debug('Range key: %s', rangeKey.name);
+      var keyConditions = queryReq.KeyConditions[rangeKey.name] = {
+        AttributeValueList: [],
+        ComparisonOperator: rangeKey.comparison.toUpperCase()
+      };
+      for (i = 0; i &lt; rangeKey.values.length; i++) {
+        val = rangeKey.values [i];
+        keyConditions.AttributeValueList.push(
+          rangeAttr.toDynamo(val, true)
+        );
+      }
+    }
+  }
+
+
+  if(this.filters &amp;&amp; Object.keys(this.filters).length &gt; 0) {
+    queryReq.QueryFilter = {};
+    for(var name in this.filters) {
+      debug('Filter on: %s', name);
+      var filter = this.filters[name];
+      var filterAttr = schema.attributes[name];
+      queryReq.QueryFilter[name] = {
+        AttributeValueList: [],
+        ComparisonOperator: filter.comparison.toUpperCase()
+      };
+
+      if(filter.values) {
+        for (i = 0; i &lt; filter.values.length; i++) {
+          val = filter.values[i];
+          queryReq.QueryFilter[name].AttributeValueList.push(
+            filterAttr.toDynamo(val, true)
+          );
+        }
+      }
+    }
+  }
+
+  if(options.or) {
+    queryReq.ConditionalOperator = 'OR'; // defualts to AND
+  }
+
+  if(options.attributes) {
+    queryReq.AttributesToGet = options.attributes;
+  }
+
+  if(options.consistent) {
+    queryReq.ConsistentRead = true;
+  }
+
+  if(options.limit) {
+    queryReq.Limit = options.limit;
+  }
+
+  if(options.one) {
+    queryReq.Limit = 1;
+  }
+
+  if(options.descending) {
+    queryReq.ScanIndexForward = false;
+  }
+
+  if(options.ExclusiveStartKey) {
+    queryReq.ExclusiveStartKey = options.ExclusiveStartKey;
+  }
+
+
+  function query () {
+    var deferred = Q.defer();
+
+    debug('DynamoDB Query: %j', queryReq);
+    Model$.base.ddb().query(queryReq, function(err, data) {
+      if(err) {
+        debug('Error returned by query', err);
+        return deferred.reject(err);
+      }
+      debug('DynamoDB Query Response: %j', data);
+
+      if(!Object.keys(data).length) {
+        return deferred.resolve();
+      }
+
+      function toModel (item) {
+        var model = new Model();
+        model.$__.isNew = false;
+        schema.parseDynamo(model, item);
+
+        debug('query parsed model', model);
+
+        return model;
+      }
+
+      try {
+
+        var models = data.Items.map(toModel);
+
+        if(options.one) {
+          if (!models || models.length === 0) {
+            return deferred.resolve();
+          }
+          return deferred.resolve(models[0]);
+        }
+
+        models.lastKey = data.LastEvaluatedKey;
+        deferred.resolve(models);
+
+      } catch (err) ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Query
+
+#### Model.query(query, options, callback)
+
+Queries a table or index. The query parameter can either the the hash key of the table or global index or a complete query object
+. If the callback is provided, the exec command is called automatically, and the query parameter must be a query object.
+
+```js
+Dog.query('breed').eq('Beagle').<span class="apidocCodeKeywordSpan">exec</span>(function (err, dogs) {
+// Look at all the beagles
+});
+```
+
+```js
+Dog.query({breed: {eq: 'Beagle'} }, function (err, dogs) {
+// Look at all the beagles
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.filter" id="apidoc.element.dynamoose.Query.prototype.filter">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>filter
+        <span class="apidocSignatureSpan">(filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (filter) {
+  if(this.buildState) {
+    throw new errors.QueryError('Invalid query state; filter() must follow comparison');
+  }
+  if(typeof filter === 'string') {
+    this.buildState = 'filter';
+    this.currentFilter = filter;
+    if(this.filters[filter]) {
+      throw new errors.QueryError('Invalid query state; %s filter can only be used once', filter);
+    }
+    this.filters[filter] = {name: filter};
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Executes the query against the table or index.
+
+#### query.where(rangeKey)
+
+Set the range key of the table or index to query.
+
+#### query.<span class="apidocCodeKeywordSpan">filter</span>(filter)
+
+Set the atribulte on which to filter.
+
+#### query.and()
+
+Use add logic for filters.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.ge" id="apidoc.element.dynamoose.Query.prototype.ge">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>ge
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ge = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'LT');
+  } else {
+    return this.compVal([val], 'GE');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter less than the value.
+
+#### query.le(value)
+
+Range key or filter less than or equal value.
+
+#### query.<span class="apidocCodeKeywordSpan">ge</span>(value)
+
+Range key or filter greater than or equal value.
+
+#### query.gt(value)
+
+Range key or filter greater than the value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.gt" id="apidoc.element.dynamoose.Query.prototype.gt">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>gt
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gt = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'LE');
+  } else {
+    return this.compVal([val], 'GT');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter less than or equal value.
+
+#### query.ge(value)
+
+Range key or filter greater than or equal value.
+
+#### query.<span class="apidocCodeKeywordSpan">gt</span>(value)
+
+Range key or filter greater than the value.
+
+#### query.beginsWith(value)
+
+Range key or filter begins with value
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.in" id="apidoc.element.dynamoose.Query.prototype.in">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>in
+        <span class="apidocSignatureSpan">(vals)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">in = function (vals) {
+  if(this.notState) {
+    throw new errors.QueryError('Invalid Query state: in() cannot follow not()');
+  }
+
+  return this.compVal(vals, 'IN');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter contains the value.
+
+#### scan.beginsWith(value)
+
+Filter begins with the value.
+
+#### scan.<span class="apidocCodeKeywordSpan">in</span>(values)
+
+Filter is in values array.
+
+#### query.limit(limit)
+
+Limit the number of responses.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.le" id="apidoc.element.dynamoose.Query.prototype.le">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>le
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">le = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'GT');
+  } else {
+    return this.compVal([val], 'LE');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+
+#### query.lt(value)
+
+Range key or filter less than the value.
+
+#### query.<span class="apidocCodeKeywordSpan">le</span>(value)
+
+Range key or filter less than or equal value.
+
+#### query.ge(value)
+
+Range key or filter greater than or equal value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.limit" id="apidoc.element.dynamoose.Query.prototype.limit">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>limit
+        <span class="apidocSignatureSpan">(limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (limit) {
+  this.options.limit = limit;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter begins with the value.
+
+#### scan.in(values)
+
+Filter is in values array.
+
+#### query.<span class="apidocCodeKeywordSpan">limit</span>(limit)
+
+Limit the number of responses.
+
+#### query.consistent()
+
+Query with consistent read.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.lt" id="apidoc.element.dynamoose.Query.prototype.lt">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>lt
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lt = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'GE');
+  } else {
+    return this.compVal([val], 'LT');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter attribute for null.
+
+#### query.eq(value)
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+
+#### query.<span class="apidocCodeKeywordSpan">lt</span>(value)
+
+Range key or filter less than the value.
+
+#### query.le(value)
+
+Range key or filter less than or equal value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.not" id="apidoc.element.dynamoose.Query.prototype.not">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>not
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">not = function () {
+  this.notState = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Use add logic for filters.
+
+#### query.or()
+
+Use or logic for filters.
+
+#### scan.<span class="apidocCodeKeywordSpan">not</span>()
+
+Inverts the filter logic that follows.
+
+#### scan.null()
+
+Filter attribute for null.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.null" id="apidoc.element.dynamoose.Query.prototype.null">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>null
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">null = function () {
+  if(this.notState) {
+    return this.compVal(null, 'NOT_NULL');
+  } else {
+    return this.compVal(null, 'NULL');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Use or logic for filters.
+
+#### scan.not()
+
+Inverts the filter logic that follows.
+
+#### scan.<span class="apidocCodeKeywordSpan">null</span>()
+
+Filter attribute for null.
+
+#### query.eq(value)
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.one" id="apidoc.element.dynamoose.Query.prototype.one">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>one
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">one = function () {
+  this.options.one = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Model.queryOne = function(NewModel, query, options, next) {
+  if(typeof options === 'function') {
+    next = options;
+    options = null;
+  }
+
+  query = new Query(NewModel, query, options);
+  query.<span class="apidocCodeKeywordSpan">one</span>();
+
+  if(next) {
+    query.exec(next);
+  }
+
+  return query;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.or" id="apidoc.element.dynamoose.Query.prototype.or">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>or
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">or = function () {
+  this.options.or = true;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Set the atribulte on which to filter.
+
+#### query.and()
+
+Use add logic for filters.
+
+#### query.<span class="apidocCodeKeywordSpan">or</span>()
+
+Use or logic for filters.
+
+#### scan.not()
+
+Inverts the filter logic that follows.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.startAt" id="apidoc.element.dynamoose.Query.prototype.startAt">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>startAt
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startAt = function (key) {
+  this.options.ExclusiveStartKey = key;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Sort in descending order.
+
+#### query.ascending()
+
+Sort in ascending order (default).
+
+#### query.<span class="apidocCodeKeywordSpan">startAt</span>(key)
+
+Start query at key.  Use LastEvaluatedKey returned in query.exec() callback.
+
+#### query.attributes(attributes)
+
+Set the attributes to return.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Query.prototype.where" id="apidoc.element.dynamoose.Query.prototype.where">
+        function <span class="apidocSignatureSpan">dynamoose.Query.prototype.</span>where
+        <span class="apidocSignatureSpan">(rangeKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">where = function (rangeKey) {
+  if(this.buildState) {
+    throw new errors.QueryError('Invalid query state; where() must follow eq()');
+  }
+  if(typeof rangeKey === 'string') {
+    this.buildState = 'rangeKey';
+    this.query.rangeKey = {name: rangeKey};
+  } else {
+    var rangeKeyName = Object.keys(rangeKey)[0];
+    var rangeKeyVal = rangeKey[rangeKeyName];
+    var rangeKeyComp = Object.keys(rangeKeyVal)[0];
+    rangeKeyVal = rangeKeyVal[rangeKeyComp];
+    this.query.rangeKey = {
+      name: rangeKeyName,
+      values: [rangeKeyVal],
+      comparison: rangeKeyComp
+    };
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+#### query.exec(callback)
+
+Executes the query against the table or index.
+
+#### query.<span class="apidocCodeKeywordSpan">where</span>(rangeKey)
+
+Set the range key of the table or index to query.
+
+#### query.filter(filter)
+
+Set the atribulte on which to filter.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Scan" id="apidoc.module.dynamoose.Scan">module dynamoose.Scan</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.Scan" id="apidoc.element.dynamoose.Scan.Scan">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Scan
+        <span class="apidocSignatureSpan">(Model, filter, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Scan(Model, filter, options) {
+
+  this.Model = Model;
+  this.options = options || {};
+
+
+  // [{
+  //     name: 'name',
+  //     values: ['value', ...],
+  //     comparison: 'string'
+  //   },
+  //    ...
+  // ]
+  this.filters = {};
+  this.buildState = false;
+
+  if (typeof filter === 'string') {
+    this.buildState = filter;
+    this.filters[filter] = {name: filter};
+  } else if (typeof filter === 'object'){
+    this.parseFilterObject(filter);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Scan.prototype" id="apidoc.module.dynamoose.Scan.prototype">module dynamoose.Scan.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.and" id="apidoc.element.dynamoose.Scan.prototype.and">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>and
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">and = function () {
+  this.options.conditionalOperator = 'AND';
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Set the range key of the table or index to query.
+
+#### query.filter(filter)
+
+Set the atribulte on which to filter.
+
+#### query.<span class="apidocCodeKeywordSpan">and</span>()
+
+Use add logic for filters.
+
+#### query.or()
+
+Use or logic for filters.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.attributes" id="apidoc.element.dynamoose.Scan.prototype.attributes">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>attributes
+        <span class="apidocSignatureSpan">(attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attributes = function (attributes) {
+  this.options.attributes = attributes;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Sort in ascending order (default).
+
+#### query.startAt(key)
+
+Start query at key.  Use LastEvaluatedKey returned in query.exec() callback.
+
+#### query.<span class="apidocCodeKeywordSpan">attributes</span>(attributes)
+
+Set the attributes to return.
+
+### Scan
+
+
+#### Model.scan(filter, options, callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.beginsWith" id="apidoc.element.dynamoose.Scan.prototype.beginsWith">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>beginsWith
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">beginsWith = function (val) {
+  if(this.notState) {
+    throw new errors.ScanError('Invalid scan state: beginsWith() cannot follow not()');
+  }
+  return this.compVal([val], 'BEGINS_WITH');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter greater than or equal value.
+
+#### query.gt(value)
+
+Range key or filter greater than the value.
+
+#### query.<span class="apidocCodeKeywordSpan">beginsWith</span>(value)
+
+Range key or filter begins with value
+
+#### query.between(a, b)
+
+Range key or filter is between values a and b.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.between" id="apidoc.element.dynamoose.Scan.prototype.between">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>between
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">between = function (a, b) {
+  if(this.notState) {
+    throw new errors.ScanError('Invalid scan state: between() cannot follow not()');
+  }
+  return this.compVal([a, b], 'BETWEEN');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter greater than the value.
+
+#### query.beginsWith(value)
+
+Range key or filter begins with value
+
+#### query.<span class="apidocCodeKeywordSpan">between</span>(a, b)
+
+Range key or filter is between values a and b.
+
+Attribute is greater than the value.
+
+#### scan.contains(value)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.compVal" id="apidoc.element.dynamoose.Scan.prototype.compVal">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>compVal
+        <span class="apidocSignatureSpan">(vals, comp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compVal = function (vals, comp) {
+
+  var permittedComparison =
+    [
+      'NOT_NULL','NULL','EQ','NE','GE','LT','GT','LE','GE',
+      'NOT_CONTAINS','CONTAINS','BEGINS_WITH','IN','BETWEEN'
+    ];
+
+
+  if(!this.buildState) {
+    throw new errors.ScanError('Invalid scan state; %s must follow scan(), where(), or filter()', comp);
+  }
+
+  if (permittedComparison.indexOf(comp) === -1) {
+    throw new errors.ScanError('Invalid comparison %s', comp);
+  }
+
+  this.filters[this.buildState].values = vals;
+  this.filters[this.buildState].comparison = comp;
+
+  this.buildState = false;
+  this.notState = false;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Query.prototype.not = function() {
+  this.notState = true;
+  return this;
+};
+
+Query.prototype.null = function() {
+  if(this.notState) {
+    return this.<span class="apidocCodeKeywordSpan">compVal</span>(null, 'NOT_NULL');
+  } else {
+    return this.compVal(null, 'NULL');
+  }
+};
+
+
+Query.prototype.eq = function (val) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.contains" id="apidoc.element.dynamoose.Scan.prototype.contains">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>contains
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">contains = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'NOT_CONTAINS');
+  } else {
+    return this.compVal([val], 'CONTAINS');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### query.between(a, b)
+
+Range key or filter is between values a and b.
+
+Attribute is greater than the value.
+
+#### scan.<span class="apidocCodeKeywordSpan">contains</span>(value)
+
+Filter contains the value.
+
+#### scan.beginsWith(value)
+
+Filter begins with the value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.eq" id="apidoc.element.dynamoose.Scan.prototype.eq">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>eq
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">eq = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'NE');
+  } else {
+    return this.compVal([val], 'EQ');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Query
+
+#### Model.query(query, options, callback)
+
+Queries a table or index. The query parameter can either the the hash key of the table or global index or a complete query object
+. If the callback is provided, the exec command is called automatically, and the query parameter must be a query object.
+
+```js
+Dog.query('breed').<span class="apidocCodeKeywordSpan">eq</span>('Beagle').exec(function (err, dogs) {
+// Look at all the beagles
+});
+```
+
+```js
+Dog.query({breed: {eq: 'Beagle'} }, function (err, dogs) {
+// Look at all the beagles
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.exec" id="apidoc.element.dynamoose.Scan.prototype.exec">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>exec
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exec = function (next) {
+  debug('exec scan for ', this.scan);
+  var Model = this.Model;
+  var Model$ = Model.$__;
+  var schema = Model$.schema;
+  var options = this.options;
+
+  var scanReq = {
+    TableName: Model.$__.name
+  };
+
+  if(Object.keys(this.filters).length &gt; 0) {
+    scanReq.ScanFilter = {};
+    for(var name in this.filters) {
+      var filter = this.filters[name];
+      var filterAttr = schema.attributes[name];
+      scanReq.ScanFilter[name] = {
+        AttributeValueList: [],
+        ComparisonOperator: filter.comparison
+      };
+
+      if(filter.values) {
+        for (var i = 0; i &lt; filter.values.length; i++) {
+          var val = filter.values[i];
+          scanReq.ScanFilter[name].AttributeValueList.push(
+            filterAttr.toDynamo(val, true)
+          );
+        }
+      }
+    }
+  }
+
+  if(options.attributes) {
+    scanReq.AttributesToGet = options.attributes;
+  }
+
+  if(options.limit) {
+    scanReq.Limit = options.limit;
+  }
+
+  if(options.ExclusiveStartKey) {
+    scanReq.ExclusiveStartKey = options.ExclusiveStartKey;
+  }
+
+  if(options.conditionalOperator) {
+    scanReq.ConditionalOperator = options.conditionalOperator;
+  }
+
+  function scan () {
+    var deferred = Q.defer();
+
+    debug('scan request', scanReq);
+    Model.$__.base.ddb().scan(scanReq, function(err, data) {
+      if(err) {
+        debug('Error returned by scan', err);
+        return deferred.reject(err);
+      }
+      debug('scan response', data);
+
+      if(!Object.keys(data).length) {
+        return deferred.resolve();
+      }
+
+      function toModel (item) {
+        var model = new Model();
+        model.$__.isNew = false;
+        schema.parseDynamo(model, item);
+
+        debug('scan parsed model', model);
+
+        return model;
+      }
+
+      try {
+        var models = data.Items.map(toModel);
+
+        models.lastKey = data.LastEvaluatedKey;
+        deferred.resolve(models);
+      } catch (err) {
+        deferred.reject(err);
+      }
+    });
+
+    return deferred.promise.nodeify(next);
+  }
+
+
+  if(Model$.options.waitForActive) {
+    return Model$.table.waitForActive().then(scan);
+  }
+
+  return scan();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Query
+
+#### Model.query(query, options, callback)
+
+Queries a table or index. The query parameter can either the the hash key of the table or global index or a complete query object
+. If the callback is provided, the exec command is called automatically, and the query parameter must be a query object.
+
+```js
+Dog.query('breed').eq('Beagle').<span class="apidocCodeKeywordSpan">exec</span>(function (err, dogs) {
+// Look at all the beagles
+});
+```
+
+```js
+Dog.query({breed: {eq: 'Beagle'} }, function (err, dogs) {
+// Look at all the beagles
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.filter" id="apidoc.element.dynamoose.Scan.prototype.filter">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>filter
+        <span class="apidocSignatureSpan">(filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (filter) {
+  if(this.buildState) {
+    throw new errors.ScanError('Invalid scan state; where() must follow comparison');
+  }
+  if(typeof filter === 'string') {
+    this.buildState = filter;
+    if(this.filters[filter]) {
+      throw new errors.ScanError('Invalid scan state; %s can only be used once', filter);
+    }
+    this.filters[filter] = {name: filter};
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Executes the query against the table or index.
+
+#### query.where(rangeKey)
+
+Set the range key of the table or index to query.
+
+#### query.<span class="apidocCodeKeywordSpan">filter</span>(filter)
+
+Set the atribulte on which to filter.
+
+#### query.and()
+
+Use add logic for filters.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.ge" id="apidoc.element.dynamoose.Scan.prototype.ge">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>ge
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ge = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'LT');
+  } else {
+    return this.compVal([val], 'GE');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter less than the value.
+
+#### query.le(value)
+
+Range key or filter less than or equal value.
+
+#### query.<span class="apidocCodeKeywordSpan">ge</span>(value)
+
+Range key or filter greater than or equal value.
+
+#### query.gt(value)
+
+Range key or filter greater than the value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.gt" id="apidoc.element.dynamoose.Scan.prototype.gt">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>gt
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gt = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'LE');
+  } else {
+    return this.compVal([val], 'GT');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Range key or filter less than or equal value.
+
+#### query.ge(value)
+
+Range key or filter greater than or equal value.
+
+#### query.<span class="apidocCodeKeywordSpan">gt</span>(value)
+
+Range key or filter greater than the value.
+
+#### query.beginsWith(value)
+
+Range key or filter begins with value
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.in" id="apidoc.element.dynamoose.Scan.prototype.in">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>in
+        <span class="apidocSignatureSpan">(vals)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">in = function (vals) {
+  if(this.notState) {
+    throw new errors.ScanError('Invalid scan state: in() cannot follow not()');
+  }
+
+  return this.compVal(vals, 'IN');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter contains the value.
+
+#### scan.beginsWith(value)
+
+Filter begins with the value.
+
+#### scan.<span class="apidocCodeKeywordSpan">in</span>(values)
+
+Filter is in values array.
+
+#### query.limit(limit)
+
+Limit the number of responses.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.le" id="apidoc.element.dynamoose.Scan.prototype.le">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>le
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">le = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'GT');
+  } else {
+    return this.compVal([val], 'LE');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+
+#### query.lt(value)
+
+Range key or filter less than the value.
+
+#### query.<span class="apidocCodeKeywordSpan">le</span>(value)
+
+Range key or filter less than or equal value.
+
+#### query.ge(value)
+
+Range key or filter greater than or equal value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.limit" id="apidoc.element.dynamoose.Scan.prototype.limit">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>limit
+        <span class="apidocSignatureSpan">(limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (limit) {
+  this.options.limit = limit;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter begins with the value.
+
+#### scan.in(values)
+
+Filter is in values array.
+
+#### query.<span class="apidocCodeKeywordSpan">limit</span>(limit)
+
+Limit the number of responses.
+
+#### query.consistent()
+
+Query with consistent read.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.lt" id="apidoc.element.dynamoose.Scan.prototype.lt">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>lt
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lt = function (val) {
+  if(this.notState) {
+    return this.compVal([val], 'GE');
+  } else {
+    return this.compVal([val], 'LT');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Filter attribute for null.
+
+#### query.eq(value)
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+
+#### query.<span class="apidocCodeKeywordSpan">lt</span>(value)
+
+Range key or filter less than the value.
+
+#### query.le(value)
+
+Range key or filter less than or equal value.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.not" id="apidoc.element.dynamoose.Scan.prototype.not">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>not
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">not = function () {
+  this.notState = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Use add logic for filters.
+
+#### query.or()
+
+Use or logic for filters.
+
+#### scan.<span class="apidocCodeKeywordSpan">not</span>()
+
+Inverts the filter logic that follows.
+
+#### scan.null()
+
+Filter attribute for null.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.null" id="apidoc.element.dynamoose.Scan.prototype.null">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>null
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">null = function () {
+  if(this.notState) {
+    return this.compVal(null, 'NOT_NULL');
+  } else {
+    return this.compVal(null, 'NULL');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Use or logic for filters.
+
+#### scan.not()
+
+Inverts the filter logic that follows.
+
+#### scan.<span class="apidocCodeKeywordSpan">null</span>()
+
+Filter attribute for null.
+
+#### query.eq(value)
+
+Hash, range key, or filter must equal the value provided. This is the only comparison option allowed for a hash key.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.or" id="apidoc.element.dynamoose.Scan.prototype.or">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>or
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">or = function () {
+  this.options.conditionalOperator = 'OR';
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Set the atribulte on which to filter.
+
+#### query.and()
+
+Use add logic for filters.
+
+#### query.<span class="apidocCodeKeywordSpan">or</span>()
+
+Use or logic for filters.
+
+#### scan.not()
+
+Inverts the filter logic that follows.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.parseFilterObject" id="apidoc.element.dynamoose.Scan.prototype.parseFilterObject">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>parseFilterObject
+        <span class="apidocSignatureSpan">(filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseFilterObject = function (filter) {
+
+  if (Object.keys(filter).length &gt; 0) {
+
+    for(var filterName in filter) {
+      if (filter.hasOwnProperty(filterName)) {
+
+        // Parse AND OR
+        if (filterName === 'and' || filterName === 'or') {
+
+          this[filterName]();
+          for(var condition in filter[filterName]) {
+            if (filter[filterName].hasOwnProperty(condition)) {
+              this.parseFilterObject(filter[filterName][condition]);
+            }
+          }
+        } else {
+
+          this.where(filterName);
+          var val, comp;
+
+          if (typeof filter[filterName] === 'object' &amp;&amp;
+            Object.keys(filter[filterName]).length  === 1) {
+
+            comp = Object.keys(filter[filterName])[0];
+
+            if (comp === 'null') {
+              if (!filter[filterName][comp]) {
+                comp = 'not_null';
+              }
+              val = [null];
+            } else if (comp === 'in' || comp === 'between') {
+              val = filter[filterName][comp];
+            } else {
+              val = [filter[filterName][comp]];
+            }
+
+          } else {
+            comp = 'eq';
+            val = [filter[filterName]];
+          }
+          this.compVal(val, comp.toUpperCase());
+        }
+
+
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.filters = {};
+this.buildState = false;
+
+if (typeof filter === 'string') {
+  this.buildState = filter;
+  this.filters[filter] = {name: filter};
+} else if (typeof filter === 'object'){
+  this.<span class="apidocCodeKeywordSpan">parseFilterObject</span>(filter);
+}
+}
+
+
+
+Scan.prototype.exec = function (next) {
+debug('exec scan for ', this.scan);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.startAt" id="apidoc.element.dynamoose.Scan.prototype.startAt">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>startAt
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startAt = function (key) {
+  this.options.ExclusiveStartKey = key;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Sort in descending order.
+
+#### query.ascending()
+
+Sort in ascending order (default).
+
+#### query.<span class="apidocCodeKeywordSpan">startAt</span>(key)
+
+Start query at key.  Use LastEvaluatedKey returned in query.exec() callback.
+
+#### query.attributes(attributes)
+
+Set the attributes to return.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Scan.prototype.where" id="apidoc.element.dynamoose.Scan.prototype.where">
+        function <span class="apidocSignatureSpan">dynamoose.Scan.prototype.</span>where
+        <span class="apidocSignatureSpan">(filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">where = function (filter) {
+  if(this.buildState) {
+    throw new errors.ScanError('Invalid scan state; where() must follow comparison');
+  }
+  if(typeof filter === 'string') {
+    this.buildState = filter;
+    if(this.filters[filter]) {
+      throw new errors.ScanError('Invalid scan state; %s can only be used once', filter);
+    }
+    this.filters[filter] = {name: filter};
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+#### query.exec(callback)
+
+Executes the query against the table or index.
+
+#### query.<span class="apidocCodeKeywordSpan">where</span>(rangeKey)
+
+Set the range key of the table or index to query.
+
+#### query.filter(filter)
+
+Set the atribulte on which to filter.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Schema" id="apidoc.module.dynamoose.Schema">module dynamoose.Schema</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.Schema" id="apidoc.element.dynamoose.Schema.Schema">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Schema
+        <span class="apidocSignatureSpan">(obj, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Schema(obj, options) {
+  debug('Creating Schema', obj);
+
+  this.options = options || {};
+
+  this.methods = {};
+  this.statics = {};
+  this.virtuals = {};
+  this.tree = {};
+
+  if(this.options.throughput) {
+    var throughput = this.options.throughput;
+    if(typeof throughput === 'number') {
+      throughput = {read: throughput, write: throughput};
+    }
+    this.throughput = throughput;
+  } else {
+    this.throughput = {read: 1, write: 1};
+  }
+
+  if((!this.throughput.read || !this.throughput.write) &amp;&amp;
+    this.throughput.read &gt;= 1 &amp;&amp; this.throughput.write &gt;= 1) {
+    throw new errors.SchemaError('Invalid throughput: '+ this.throughput);
+  }
+
+<span class="apidocCodeCommentSpan">  /*
+    * Added support for timestamps attribute
+    */
+</span>  if (this.options.timestamps) {
+    var createdAt = null;
+    var updatedAt = null;
+
+    if (this.options.timestamps === true) {
+      createdAt = 'createdAt';
+      updatedAt = 'updatedAt';
+    } else if (typeof this.options.timestamps === 'object') {
+      if (this.options.timestamps.createdAt &amp;&amp; this.options.timestamps.updatedAt) {
+        createdAt = this.options.timestamps.createdAt;
+        updatedAt = this.options.timestamps.updatedAt;
+      } else {
+        throw new errors.SchemaError('Missing createdAt and updatedAt timestamps attribute. Maybe set timestamps: true?');
+      }
+    } else {
+      throw new errors.SchemaError('Invalid syntax for timestamp: ' + name);
+    }
+
+    obj[createdAt] = { type: Date, default: Date.now };
+    obj[updatedAt] = { type: Date, default: Date.now, set: function() { return Date.now(); } };
+    this.timestamps = { createdAt: createdAt, updatedAt: updatedAt };
+  }
+
+  this.useDocumentTypes = !!this.options.useDocumentTypes;
+
+  this.attributes = {};
+  this.indexes = {local: {}, global: {}};
+
+  for(var n in obj) {
+
+    if(this.attributes[n]) {
+      throw new errors.SchemaError('Duplicate attribute: ' + n);
+    }
+
+    debug('Adding Attribute to Schema (%s)', n, obj);
+    this.attributes[n] = Attribute.create(this, n, obj[n]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Schema.prototype" id="apidoc.module.dynamoose.Schema.prototype">module dynamoose.Schema.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.method" id="apidoc.element.dynamoose.Schema.prototype.method">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>method
+        <span class="apidocSignatureSpan">(name, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">method = function (name, fn) {
+  if (typeof name !== 'string' ){
+    for (var i in name){
+      this.methods[i] = name[i];
+    }
+  } else {
+    this.methods[name] = fn;
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Adds an instance method to documents constructed from Models compiled from this schema.
+*
+* ####Example
+*
+*     var schema = kittySchema = new Schema(..);
+*
+*     schema.<span class="apidocCodeKeywordSpan">method</span>('meow', function () {
+*       console.log('meeeeeoooooooooooow');
+*     })
+*
+*     var Kitty = mongoose.model('Kitty', schema);
+*
+*     var fizz = new Kitty;
+*     fizz.meow(); // meeeeeooooooooooooow
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.parseDynamo" id="apidoc.element.dynamoose.Schema.prototype.parseDynamo">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>parseDynamo
+        <span class="apidocSignatureSpan">(model, dynamoObj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseDynamo = function (model, dynamoObj) {
+
+  for(var attrName in this.attributes) {
+    var attrVal = this.attributes[attrName].parseDynamo(dynamoObj[attrName]);
+    if(attrVal !== undefined &amp;&amp; attrVal !== null){
+      model[attrName] = attrVal;
+    }
+  }
+
+  debug('parseDynamo: %s',JSON.stringify(model));
+
+  return dynamoObj;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function mapify(v, attr){
+  if(!v){ return; }
+  var val = {};
+
+  for(var attrName in attr.attributes) {
+      var attrVal = attr.attributes[attrName].<span class="apidocCodeKeywordSpan">parseDynamo</span>(v[attrName]);
+      if(attrVal !== undefined &amp;&amp; attrVal !== null){
+        val[attrName] = attrVal;
+      }
+    }
+  return val;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.static" id="apidoc.element.dynamoose.Schema.prototype.static">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>static
+        <span class="apidocSignatureSpan">(name, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">static = function (name, fn) {
+  if (typeof name !== 'string' ){
+    for (var i in name){
+      this.statics[i] = name[i];
+    }
+  } else {
+    this.statics[name] = fn;
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Adds static "class" methods to Models compiled from this schema.
+*
+* ####Example
+*
+*     var schema = new Schema(..);
+*     schema.<span class="apidocCodeKeywordSpan">static</span>('findByName', function (name, callback) {
+*       return this.find({ name: name }, callback);
+*     });
+*
+*     var Drink = mongoose.model('Drink', schema);
+*     Drink.findByName('sanpellegrino', function (err, drinks) {
+*       //
+*     });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.toDynamo" id="apidoc.element.dynamoose.Schema.prototype.toDynamo">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>toDynamo
+        <span class="apidocSignatureSpan">(model)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toDynamo = function (model) {
+
+  var dynamoObj = {};
+  //debug('toDynamo with schema attributes', this.attributes);
+  for(var name in this.attributes) {
+    var attr = this.attributes[name];
+    attr.setDefault(model);
+    var dynamoAttr = attr.toDynamo(model[name], undefined, model);
+    if(dynamoAttr) {
+      dynamoObj[attr.name] = dynamoAttr;
+    }
+  }
+
+  debug('toDynamo: %s', JSON.stringify(dynamoObj) );
+  return dynamoObj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }.bind(this));
+} else if (type.name === 'map') {
+
+  var dynamoMapObj = {};
+  for(var name in this.attributes) {
+    var attr = this.attributes[name];
+    attr.setDefault(model);
+    var dynamoAttr = attr.<span class="apidocCodeKeywordSpan">toDynamo</span>(val[name], undefined, model);
+    if(dynamoAttr) {
+      dynamoMapObj[attr.name] = dynamoAttr;
+    }
+  }
+  dynamoObj.M = dynamoMapObj;
+
+} else if (type.name === 'list') {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.virtual" id="apidoc.element.dynamoose.Schema.prototype.virtual">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>virtual
+        <span class="apidocSignatureSpan">(name, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">virtual = function (name, options) {
+  //var virtuals = this.virtuals;
+  var parts = name.split('.');
+
+  return this.virtuals[name] = parts.reduce(function (mem, part, i) {
+    mem[part] || (mem[part] = (i === parts.length-1) ? new VirtualType(options, name) : {});
+    return mem[part];
+  }, this.tree);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * VirtualType constructor
+ *
+ * This is what mongoose uses to define virtual attributes via `Schema.prototype.virtual`.
+ *
+ * ####Example:
+ *
+ *     var fullname = schema.<span class="apidocCodeKeywordSpan">virtual</span>('fullname');
+ *     fullname instanceof mongoose.VirtualType // true
+ *
+ * @parma {Object} options
+ * @api public
+ */
+
+function VirtualType (options, name) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Schema.prototype.virtualpath" id="apidoc.element.dynamoose.Schema.prototype.virtualpath">
+        function <span class="apidocSignatureSpan">dynamoose.Schema.prototype.</span>virtualpath
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">virtualpath = function (name) {
+  return this.virtuals[name];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Table" id="apidoc.module.dynamoose.Table">module dynamoose.Table</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.Table" id="apidoc.element.dynamoose.Table.Table">
+        function <span class="apidocSignatureSpan">dynamoose.</span>Table
+        <span class="apidocSignatureSpan">(name, schema, options, base)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Table(name, schema, options, base) {
+  debug('new Table (%s)', name, schema);
+  this.name = name;
+  this.schema = schema;
+  this.options = options || {};
+  this.base = base;
+
+  if (this.options.create === undefined || this.options.create === null) {
+    this.options.create = true;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.Table.prototype" id="apidoc.module.dynamoose.Table.prototype">module dynamoose.Table.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.create" id="apidoc.element.dynamoose.Table.prototype.create">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>create
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (next) {
+  var ddb = this.base.ddb();
+  var schema = this.schema;
+  var createTableReq = buildTableReq(this.name, schema);
+
+  debug('ddb.createTable request:', createTableReq);
+
+  var deferred = Q.defer();
+
+  ddb.createTable(createTableReq, function (err, data) {
+    if (err) {
+      debug('error creating table', err);
+      return deferred.reject(err);
+    }
+    debug('table created', data);
+    deferred.resolve(data);
+  });
+  return deferred.promise.nodeify(next);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+**conditionValues**: object
+
+A map of values for the condition expression. Note that in order for
+automatic object conversion to work, the keys in this object must
+match schema attribute names.
+
+#### Model.<span class="apidocCodeKeywordSpan">create</span>(object, options, callback)
+
+Creates a new instance of the model and save the item in the table.
+
+```js
+Dog.create({
+ownerId: 4,
+name: 'Odie',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.createIndex" id="apidoc.element.dynamoose.Table.prototype.createIndex">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>createIndex
+        <span class="apidocSignatureSpan">(attributes, indexSpec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createIndex(attributes, indexSpec) {
+  var deferred = Q.defer();
+  var table = this;
+  table.active = false;
+  var params = {
+    TableName: this.name,
+    AttributeDefinitions: attributes,
+    GlobalSecondaryIndexUpdates: [
+      {
+        Create: indexSpec
+      }
+    ]
+  };
+  this.base.ddb().updateTable(params, function (err, data) {
+    if (err) {
+      deferred.reject(err);
+    }
+    else {
+      setTimeout(function () {
+        table.waitForActive()
+          .then(function () {
+            deferred.resolve(data);
+          });
+      }, 300);
+    }
+  });
+  return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  for (var deleteIdx in indexes.delete) {
+    table.deleteIndex(indexes.delete[deleteIdx].IndexName);
+  }
+  for (var bothIdx in indexes.both) {
+    /*jshint loopfunc: true */
+    table.deleteIndex(indexes.both[bothIdx].IndexName)
+      .then(function () {
+        table.<span class="apidocCodeKeywordSpan">createIndex</span>(localTableReq.AttributeDefinitions, indexes.both[bothIdx]);
+      });
+  }
+  for (var createIdx in indexes.create) {
+    table.createIndex(localTableReq.AttributeDefinitions, indexes.create[createIdx]);
+  }
+} else {
+  if (indexes.delete.length &gt; 0 || indexes.create.length &gt; 0) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.delete" id="apidoc.element.dynamoose.Table.prototype.delete">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>delete
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (next) {
+  var deleteTableReq = {
+    TableName: this.name
+  };
+
+  debug('ddb.deleteTable request:', deleteTableReq);
+
+  var ddb = this.base.ddb();
+
+  var deferred = Q.defer();
+
+  ddb.deleteTable(deleteTableReq, function (err, data) {
+    if (err) {
+      debug('error deleting table', err);
+      return deferred.reject(err);
+    }
+    debug('deleted table', data);
+    deferred.resolve(data);
+  });
+
+  return deferred.promise.nodeify(next);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+Dog.batchGet([{ownerId: 4, name: 'Odie'}, {ownerId: 5, name: 'Lassie'}], function (err, dogs) {
+if (err) { return console.log(err); }
+console.log('Retrieved two dogs: ' + dogs);
+});
+```
+
+#### Model.<span class="apidocCodeKeywordSpan">delete</span>(key, options, callback)
+
+Deletes an item from the table.
+
+```js
+Dog.delete({ownerId: 4, name: 'Odie'}, function(err) {
+if(err) { return console.log(err); }
+console.log('Bye bye Odie');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.deleteIndex" id="apidoc.element.dynamoose.Table.prototype.deleteIndex">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>deleteIndex
+        <span class="apidocSignatureSpan">(indexName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deleteIndex(indexName) {
+  var deferred = Q.defer();
+  var table = this;
+  table.active = false;
+  var params = {
+    TableName: table.name,
+    GlobalSecondaryIndexUpdates: [
+      {
+        Delete: {
+          IndexName: indexName
+        }
+      }
+    ]
+  };
+  table.base.ddb().updateTable(params, function (err, data) {
+    debug('deleteIndex handler running');
+    if (err) {
+      deferred.reject(err);
+    }
+    else {
+      setTimeout(function () {
+        table.waitForActive()
+          .then(function () {
+            deferred.resolve(data);
+          });
+      }, 300);
+    }
+  });
+  return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+localTableReq = buildTableReq(table.name, table.schema);
+var indexes = compareIndexes(localTableReq, data.Table);
+
+debug('%s', JSON.stringify(indexes, null, 2));
+if (table.options.update) {
+  debug('checking indexes');
+  for (var deleteIdx in indexes.delete) {
+    table.<span class="apidocCodeKeywordSpan">deleteIndex</span>(indexes.delete[deleteIdx].IndexName);
+  }
+  for (var bothIdx in indexes.both) {
+    /*jshint loopfunc: true */
+    table.deleteIndex(indexes.both[bothIdx].IndexName)
+      .then(function () {
+        table.createIndex(localTableReq.AttributeDefinitions, indexes.both[bothIdx]);
+      });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.describe" id="apidoc.element.dynamoose.Table.prototype.describe">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>describe
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">describe = function (next) {
+  var describeTableReq = {
+    TableName: this.name
+  };
+
+  var deferred = Q.defer();
+
+  var ddb = this.base.ddb();
+  ddb.describeTable(describeTableReq, function (err, data) {
+    if (err) {
+      debug('error describing table', err);
+      return deferred.reject(err);
+    }
+    deferred.resolve(data);
+  });
+
+
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  debug('initializing table, %s, %j', this.name, this.options);
+  var deferred = Q.defer();
+
+  var table = this;
+  var localTableReq;
+
+  if (this.options.create) {
+    this.<span class="apidocCodeKeywordSpan">describe</span>()
+      .then(function (data) {
+debug('table exist -- initialization done');
+localTableReq = buildTableReq(table.name, table.schema);
+var indexes = compareIndexes(localTableReq, data.Table);
+
+debug('%s', JSON.stringify(indexes, null, 2));
+if (table.options.update) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.init" id="apidoc.element.dynamoose.Table.prototype.init">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>init
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (next) {
+  debug('initializing table, %s, %j', this.name, this.options);
+  var deferred = Q.defer();
+
+  var table = this;
+  var localTableReq;
+
+  if (this.options.create) {
+    this.describe()
+      .then(function (data) {
+        debug('table exist -- initialization done');
+        localTableReq = buildTableReq(table.name, table.schema);
+        var indexes = compareIndexes(localTableReq, data.Table);
+
+        debug('%s', JSON.stringify(indexes, null, 2));
+        if (table.options.update) {
+          debug('checking indexes');
+          for (var deleteIdx in indexes.delete) {
+            table.deleteIndex(indexes.delete[deleteIdx].IndexName);
+          }
+          for (var bothIdx in indexes.both) {
+<span class="apidocCodeCommentSpan">            /*jshint loopfunc: true */
+</span>            table.deleteIndex(indexes.both[bothIdx].IndexName)
+              .then(function () {
+                table.createIndex(localTableReq.AttributeDefinitions, indexes.both[bothIdx]);
+              });
+          }
+          for (var createIdx in indexes.create) {
+            table.createIndex(localTableReq.AttributeDefinitions, indexes.create[createIdx]);
+          }
+        } else {
+          if (indexes.delete.length &gt; 0 || indexes.create.length &gt; 0) {
+            debug('indexes are not synchronized and update flag is set to false');
+            deferred.reject('indexes are not synchronized and update flag is set to false');
+          }
+        }
+        table.initialized = true;
+        return table.waitForActive()
+          .then(function () {
+            //table.active = data.Table.TableStatus === 'ACTIVE';
+
+            return deferred.resolve();
+          });
+      })
+      .catch(function (err) {
+        if (err &amp;&amp; err.code === 'ResourceNotFoundException') {
+          debug('table does not exist -- creating');
+          return deferred.resolve(
+            table.create()
+              .then(function () {
+                table.initialized = true;
+              })
+              .then(function() {
+                if(table.options.waitForActive) {
+                  return table.waitForActive();
+                }
+              })
+          );
+        }
+        if (err) {
+          debug('error initializing', err.stack);
+          return deferred.reject(err);
+        }
+      });
+  } else {
+    table.initialized = true;
+    return deferred.resolve();
+  }
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  applyStatics(NewModel, schema);
+
+  // set up middleware
+  for (var k in hooks) {
+    NewModel[k] = hooks[k];
+  }
+
+  table.<span class="apidocCodeKeywordSpan">init</span>(function (err) {
+    if(err) {
+      throw err;
+    }
+  });
+
+  return NewModel;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.update" id="apidoc.element.dynamoose.Table.prototype.update">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>update
+        <span class="apidocSignatureSpan">(next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (next) {
+  // var ddb = this.base.ddb();
+  // ddb.updateTable();
+  var deferred = Q.defer();
+  deferred.reject(new Error('TODO'));
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Configures and returns the AWS.DynamoDB object
+
+#### dynamoose.AWS
+
+AWS object for dynamoose.  Used to configure AWS for dynamoose.
+
+```js
+dynamoose.AWS.config.<span class="apidocCodeKeywordSpan">update</span>({
+  accessKeyId: 'AKID',
+  secretAccessKey: 'SECRET',
+  region: 'us-east-1'
+});
+```
+
+#### dynamoose.setDefaults(options)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.Table.prototype.waitForActive" id="apidoc.element.dynamoose.Table.prototype.waitForActive">
+        function <span class="apidocSignatureSpan">dynamoose.Table.prototype.</span>waitForActive
+        <span class="apidocSignatureSpan">(timeout, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">waitForActive = function (timeout, next) {
+  debug('Waiting for Active table, %s, %j', this.name, this.options);
+  var deferred = Q.defer();
+
+  if (typeof timeout === 'function') {
+    next = timeout;
+    timeout = null;
+  }
+
+  if (!timeout) {
+    timeout = this.options.waitForActiveTimeout;
+  }
+
+  var table = this;
+
+  var timeoutAt = Date.now() + timeout;
+
+  function waitForActive() {
+    debug('Waiting...');
+<span class="apidocCodeCommentSpan">    /*
+     if (table.active) {
+     debug('Table flag is set to Active - %s', table.name);
+     return deferred.resolve();
+     }*/
+</span>    if (Date.now() &gt; timeoutAt) {
+      return deferred.reject(
+        new Error('Wait for Active timed out after ' + timeout + ' ms.')
+      );
+    }
+    if (!table.initialized) {
+      return setTimeout(waitForActive, 10);
+    }
+    table.describe()
+      .then(function (data) {
+        var active = (data.Table.TableStatus === 'ACTIVE');
+        var indexes = data.Table.GlobalSecondaryIndexes || [];
+        indexes.forEach(function (gsi) {
+          //debug('waitForActive Index Check: %s', JSON.stringify(gsi, null, 2));
+          debug('index %s.IndexStatus is %s', gsi.IndexName, gsi.IndexStatus);
+          if (gsi.IndexStatus !== 'ACTIVE') {
+            active = false;
+          }
+        });
+        if (!active) {
+          debug('Waiting for Active again - %s', table.name);
+          setTimeout(waitForActive, 500);
+        } else {
+          table.active = true;
+          deferred.resolve();
+        }
+      })
+      .catch(function (err) {
+        if (err &amp;&amp; err.code === 'ResourceNotFoundException') {
+          return setTimeout(waitForActive, 10);
+        }
+        debug('Error waiting for active', err.stack);
+        return deferred.reject(err);
+      });
+  }
+
+  waitForActive();
+
+  return deferred.promise.nodeify(next);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+NewModel.batchDelete = function (keys, options, next) {
+  return Model.batchDelete(NewModel, keys, options, next);
+};
+
+NewModel.waitForActive = function (timeout, next) {
+  return table.<span class="apidocCodeKeywordSpan">waitForActive</span>(timeout, next);
+};
+
+
+// apply methods and statics
+applyMethods(NewModel, schema);
+applyStatics(NewModel, schema);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.VirtualType" id="apidoc.module.dynamoose.VirtualType">module dynamoose.VirtualType</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.VirtualType.VirtualType" id="apidoc.element.dynamoose.VirtualType.VirtualType">
+        function <span class="apidocSignatureSpan">dynamoose.</span>VirtualType
+        <span class="apidocSignatureSpan">(options, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function VirtualType(options, name) {
+  this.path = name;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.VirtualType.prototype" id="apidoc.module.dynamoose.VirtualType.prototype">module dynamoose.VirtualType.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.VirtualType.prototype.applyVirtuals" id="apidoc.element.dynamoose.VirtualType.prototype.applyVirtuals">
+        function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>applyVirtuals
+        <span class="apidocSignatureSpan">(model)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">applyVirtuals = function (model) {
+    debug('applyVirtuals for %s', this.path);
+    var property = {enumerable: true,
+                    configurable: true};
+
+    if (this.setter){
+      property.set = this.setter;
+    }
+
+    if (this.getter){
+      property.get = this.getter;
+    }
+
+    Object.defineProperty(model, this.path, property);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Register virtuals for this model
+ * @param {Model} model
+ * @param {Schema} schema
+ */
+var applyVirtuals = function(model, schema){
+  debug('applying virtuals');
+  for (var i in schema.virtuals){
+    schema.virtuals[i].<span class="apidocCodeKeywordSpan">applyVirtuals</span>(model);
+  }
+};
+
+
+
+
+Model.prototype.put = function(options, next) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.VirtualType.prototype.get" id="apidoc.element.dynamoose.VirtualType.prototype.get">
+        function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>get
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (fn) {
+  debug('registering getter for ' + this.path);
+  this.getter = fn;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Create a new cat object
+var garfield = new Cat({id: 666, name: 'Garfield'});
+
+// Save to DynamoDB
+garfield.save();
+
+// Lookup in DynamoDB
+Cat.<span class="apidocCodeKeywordSpan">get</span>(666)
+.then(function (badCat) {
+  console.log('Never trust a smiling cat. - ' + badCat.name);
+});
+```
+
+## API
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.VirtualType.prototype.set" id="apidoc.element.dynamoose.VirtualType.prototype.set">
+        function <span class="apidocSignatureSpan">dynamoose.VirtualType.prototype.</span>set
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (fn) {
+  debug('registering setter for ' + this.path);
+  this.setter = fn;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if(this.validator &amp;&amp; !this.validator(val)) {
+  throw new errors.ValidationError('Validation failed: ' + this.name);
+}
+
+if(this.set) {
+  val = this.<span class="apidocCodeKeywordSpan">set</span>(val);
+}
+
+
+
+var type = this.type;
+
+var isSet = this.isSet &amp;&amp; !noSet;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.errors" id="apidoc.module.dynamoose.errors">module dynamoose.errors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.errors.ModelError" id="apidoc.element.dynamoose.errors.ModelError">
+        function <span class="apidocSignatureSpan">dynamoose.errors.</span>ModelError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ModelError(message) {
+  Error.call(this); //super constructor
+  Error.captureStackTrace(this, this.constructor); //super helper method to include stack trace in error object
+
+  this.name = this.constructor.name; //set our functionâ€™s name as error name.
+  this.message = message || 'Error with model';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      req.ExpressionAttributeValues = {};
+      Object.keys(options.conditionValues).forEach(function (k) {
+        var val = options.conditionValues[k];
+        var attr = schema.attributes[k];
+        if(attr) {
+          req.ExpressionAttributeValues[':' + k] = attr.toDynamo(val);
+        } else {
+          throw new errors.<span class="apidocCodeKeywordSpan">ModelError</span>('Invalid condition value: ' + k + '
+;. The name must either be in the schema or a full DynamoDB object must be specified.');
+        }
+      });
+    }
+  }
+}
+
+Model.compile = function compile (name, schema, options, base) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.errors.QueryError" id="apidoc.element.dynamoose.errors.QueryError">
+        function <span class="apidocSignatureSpan">dynamoose.errors.</span>QueryError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function QueryError(message) {
+  Error.call(this); //super constructor
+  Error.captureStackTrace(this, this.constructor); //super helper method to include stack trace in error object
+
+  this.name = this.constructor.name; //set our functionâ€™s name as error name.
+  this.message = message || 'Error with query';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return query();
+};
+
+
+Query.prototype.where = function (rangeKey) {
+if(this.buildState) {
+  throw new errors.<span class="apidocCodeKeywordSpan">QueryError</span>('Invalid query state; where() must follow eq()'
+;);
+}
+if(typeof rangeKey === 'string') {
+  this.buildState = 'rangeKey';
+  this.query.rangeKey = {name: rangeKey};
+} else {
+  var rangeKeyName = Object.keys(rangeKey)[0];
+  var rangeKeyVal = rangeKey[rangeKeyName];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.errors.ScanError" id="apidoc.element.dynamoose.errors.ScanError">
+        function <span class="apidocSignatureSpan">dynamoose.errors.</span>ScanError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ScanError(message) {
+  Error.call(this); //super constructor
+  Error.captureStackTrace(this, this.constructor); //super helper method to include stack trace in error object
+
+  this.name = this.constructor.name; //set our functionâ€™s name as error name.
+  this.message = message || 'Error with scan';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.options.conditionalOperator = 'OR';
+return this;
+};
+
+
+Scan.prototype.where = function (filter) {
+if(this.buildState) {
+  throw new errors.<span class="apidocCodeKeywordSpan">ScanError</span>('Invalid scan state; where() must follow comparison
+');
+}
+if(typeof filter === 'string') {
+  this.buildState = filter;
+  if(this.filters[filter]) {
+    throw new errors.ScanError('Invalid scan state; %s can only be used once', filter);
+  }
+  this.filters[filter] = {name: filter};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.errors.SchemaError" id="apidoc.element.dynamoose.errors.SchemaError">
+        function <span class="apidocSignatureSpan">dynamoose.errors.</span>SchemaError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SchemaError(message) {
+  Error.call(this); //super constructor
+  Error.captureStackTrace(this, this.constructor); //super helper method to include stack trace in error object
+
+  this.name = this.constructor.name; //set our functionâ€™s name as error name.
+  this.message = message || 'Error with schema';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if ( this.type.name === 'map'){
+
+  if(value.type) {
+    value = value.map;
+  }
+  for (var subattrName in value){
+    if(this.attributes[subattrName]) {
+      throw new errors.<span class="apidocCodeKeywordSpan">SchemaError</span>('Duplicate attribute: ' + subattrName + &amp;#
+x27; in ' + this.name);
+    }
+
+    this.attributes[subattrName] = module.exports.create(schema, subattrName, value[subattrName]);
+  }
+
+}
+else if (this.type.name === 'list'){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.errors.ValidationError" id="apidoc.element.dynamoose.errors.ValidationError">
+        function <span class="apidocSignatureSpan">dynamoose.errors.</span>ValidationError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ValidationError(message) {
+  Error.call(this); //super constructor
+  Error.captureStackTrace(this, this.constructor); //super helper method to include stack trace in error object
+
+  this.name = this.constructor.name; //set our functionâ€™s name as error name.
+  this.message = message || 'Validation error';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+};
+
+Attribute.prototype.toDynamo = function(val, noSet, model) {
+
+if(val === null || val === undefined || val === '') {
+  if(this.required) {
+    throw new errors.<span class="apidocCodeKeywordSpan">ValidationError</span>('Required value missing: ' + this.name
+);
+  }
+  return null;
+}
+
+if(!noSet &amp;&amp; this.isSet){
+  if(!util.isArray(val)) {
+    throw new errors.ValidationError('Values must be array: ' + this.name);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamoose.gruntfile" id="apidoc.module.dynamoose.gruntfile">module dynamoose.gruntfile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamoose.gruntfile.gruntfile" id="apidoc.element.dynamoose.gruntfile.gruntfile">
+        function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    jshint: {
+      app: {
+        src: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
+        options: {
+          node: true,
+          jshintrc: '.jshintrc'
+        }
+      },
+      test: {
+        src: ['test/**/*.js' ],
+        options: {
+          node: true,
+          jshintrc: 'test/.jshintrc'
+        }
+      }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      },
+      testCoverage: {
+        options: {
+          reporter: 'spec',
+          require: 'test/coverage/blanket'
+        },
+        src: ['test/**/*.js']
+      },
+      coverage: {
+        options: {
+          reporter: 'html-cov',
+          // use the quiet flag to suppress the mocha console output
+          quiet: true,
+          // specify a destination file to capture the mocha
+          // output (the quiet option does not suppress this)
+          captureFile: 'coverage.html'
+        },
+        src: ['test/**/*.js']
+      },
+      'travis-cov': {
+        options: {
+          reporter: 'travis-cov'
+        },
+        src: ['test/**/*.js']
+      }
+    }
+  });
+
+  // Load libs
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-mocha-test');
+
+
+  // Register the default tasks
+  grunt.registerTask('default', ['jshint', 'mochaTest']);
+
+  grunt.registerTask('test', ['jshint', 'mochaTest:test']);
+
+  grunt.registerTask('coverage', ['jshint', 'mochaTest:testCoverage', 'mochaTest:coverage', 'mochaTest:travis-cov']);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
