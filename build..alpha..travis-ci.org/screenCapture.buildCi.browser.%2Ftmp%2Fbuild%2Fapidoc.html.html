@@ -110,15 +110,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.gruntfile">
-            function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
-            <span class="apidocSignatureSpan">(grunt)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamoose.</span>Attribute</span>
 
         </li>
@@ -1027,19 +1018,6 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.dynamoose.gruntfile">module dynamoose.gruntfile</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.dynamoose.gruntfile.gruntfile">
-            function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
-            <span class="apidocSignatureSpan">(grunt)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -1277,84 +1255,6 @@
     <li>description and source-code<pre class="apidocCodePre">function VirtualType(options, name) {
   this.path = name;
   this.options = options || {};
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.dynamoose.gruntfile" id="apidoc.element.dynamoose.gruntfile">
-        function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
-        <span class="apidocSignatureSpan">(grunt)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    jshint: {
-      app: {
-        src: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
-        options: {
-          node: true,
-          jshintrc: '.jshintrc'
-        }
-      },
-      test: {
-        src: ['test/**/*.js' ],
-        options: {
-          node: true,
-          jshintrc: 'test/.jshintrc'
-        }
-      }
-    },
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['test/**/*.js']
-      },
-      testCoverage: {
-        options: {
-          reporter: 'spec',
-          require: 'test/coverage/blanket'
-        },
-        src: ['test/**/*.js']
-      },
-      coverage: {
-        options: {
-          reporter: 'html-cov',
-          // use the quiet flag to suppress the mocha console output
-          quiet: true,
-          // specify a destination file to capture the mocha
-          // output (the quiet option does not suppress this)
-          captureFile: 'coverage.html'
-        },
-        src: ['test/**/*.js']
-      },
-      'travis-cov': {
-        options: {
-          reporter: 'travis-cov'
-        },
-        src: ['test/**/*.js']
-      }
-    }
-  });
-
-  // Load libs
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-mocha-test');
-
-
-  // Register the default tasks
-  grunt.registerTask('default', ['jshint', 'mochaTest']);
-
-  grunt.registerTask('test', ['jshint', 'mochaTest:test']);
-
-  grunt.registerTask('coverage', ['jshint', 'mochaTest:testCoverage', 'mochaTest:coverage', 'mochaTest:travis-cov']);
-
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1852,7 +1752,23 @@ Dog.batchPut([
 
   return NewModel;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if(this.models[name]) {
+   return this.models[name];
+ }
+ if (!(schema instanceof Schema)) {
+   schema = new Schema(schema, options);
+ }
+
+ var model = Model.<span class="apidocCodeKeywordSpan">compile</span>(name, schema, options, this);
+ this.models[name] = model;
+ return model;
+};
+
+/**
+* The Mongoose [VirtualType](#virtualtype_VirtualType) constructor
+*
+...</pre></li>
     </ul>
 
 
@@ -5744,89 +5660,6 @@ if(!noSet &amp;&amp; this.isSet){
   if(!util.isArray(val)) {
     throw new errors.ValidationError('Values must be array: ' + this.name);
 ...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.dynamoose.gruntfile" id="apidoc.module.dynamoose.gruntfile">module dynamoose.gruntfile</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.dynamoose.gruntfile.gruntfile" id="apidoc.element.dynamoose.gruntfile.gruntfile">
-        function <span class="apidocSignatureSpan">dynamoose.</span>gruntfile
-        <span class="apidocSignatureSpan">(grunt)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    jshint: {
-      app: {
-        src: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
-        options: {
-          node: true,
-          jshintrc: '.jshintrc'
-        }
-      },
-      test: {
-        src: ['test/**/*.js' ],
-        options: {
-          node: true,
-          jshintrc: 'test/.jshintrc'
-        }
-      }
-    },
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['test/**/*.js']
-      },
-      testCoverage: {
-        options: {
-          reporter: 'spec',
-          require: 'test/coverage/blanket'
-        },
-        src: ['test/**/*.js']
-      },
-      coverage: {
-        options: {
-          reporter: 'html-cov',
-          // use the quiet flag to suppress the mocha console output
-          quiet: true,
-          // specify a destination file to capture the mocha
-          // output (the quiet option does not suppress this)
-          captureFile: 'coverage.html'
-        },
-        src: ['test/**/*.js']
-      },
-      'travis-cov': {
-        options: {
-          reporter: 'travis-cov'
-        },
-        src: ['test/**/*.js']
-      }
-    }
-  });
-
-  // Load libs
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-mocha-test');
-
-
-  // Register the default tasks
-  grunt.registerTask('default', ['jshint', 'mochaTest']);
-
-  grunt.registerTask('test', ['jshint', 'mochaTest:test']);
-
-  grunt.registerTask('coverage', ['jshint', 'mochaTest:testCoverage', 'mochaTest:coverage', 'mochaTest:travis-cov']);
-
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
