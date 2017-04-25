@@ -1,4 +1,7 @@
-# api documentation for  [dynamoose (v0.7.0)](https://github.com/automategreen/dynamoose)  [![npm package](https://img.shields.io/npm/v/npmdoc-dynamoose.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-dynamoose) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-dynamoose.svg)](https://travis-ci.org/npmdoc/node-npmdoc-dynamoose)
+# npmdoc-dynamoose
+
+#### basic api documentation for  [dynamoose (v0.7.0)](https://github.com/automategreen/dynamoose)  [![npm package](https://img.shields.io/npm/v/npmdoc-dynamoose.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-dynamoose) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-dynamoose.svg)](https://travis-ci.org/npmdoc/node-npmdoc-dynamoose)
+
 #### Dynamoose is a modeling tool for Amazon's DynamoDB (inspired by Mongoose)
 
 [![NPM](https://nodei.co/npm/dynamoose.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/dynamoose)
@@ -81,7 +84,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "0.7.0"
+    "version": "0.7.0",
+    "bin": {}
 }
 ```
 
